@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_text_password12"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,27 +10,28 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editTextUsername"
+        android:id="@+id/editTextUsername2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/editTextPassword2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="text" />
 
-    <Button
-        android:id="@+id/btnLogin"
+    <EditText
+        android:id="@+id/editTextPassword3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:hint="Password again"
+        android:inputType="text" />
 
     <Button
-        android:id="@+id/btnSignup"
+        android:id="@+id/btnSignup2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Signup" />
