@@ -2,56 +2,93 @@ package com.example.csprojedeneme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText editTextUsername;
     private EditText editTextPassword;
 
-    private EditText ediTextUsername2;
-    private EditText editTextPassword2;
-    private EditText editTextPassword3;
-
     private Button btnLogin;
     private Button btnSignup;
-    private Button btnSignup2;
-    
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference usersRef = db.collection("users");
+
+    private boolean userFound = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editTextUsername = findViewById(R.id.editTextUsername);
-        editTextPassword = findViewById(R.id.editTextPassword);
+        editTextUsername = (EditText)findViewById(R.id.editTextUsername);
+        editTextPassword = (EditText)findViewById(R.id.editTextPassword);
 
-        editTextUsername = findViewById(R.id.editTextUsername2);
-        editTextPassword = findViewById(R.id.editTextPassword2);
-        editTextPassword = findViewById(R.id.editTextPassword3);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnSignup = (Button)findViewById(R.id.btnSignup);
 
-        btnLogin = findViewById(R.id.btnLogin);
-        btnSignup = findViewById(R.id.btnSignup);
-        btnSignup2 = findViewById(R.id.btnSignup2);
 
-        btnLogin.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                return false;
-            }
+    }
+    public void signup(){
+        Intent intent = new Intent(this, LoggedActivity.class);
+        startActivity(intent);
+    }
+    public void signupClick(View v){
+        Toast.makeText(MainActivity.this,"signup clicked",
+                Toast.LENGTH_SHORT).show();
+        signup();
+    }
+    public void logged(){
+        Intent intent = new Intent(this, LoggedActivity.class);
+        startActivity(intent);
+        setContentView(R.layout.activity_logged);
+    }
+
+    public void lgnClick(View v){
+        userFound = false;
+        usersRef.get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                            User user = documentSnapshot.toObject(User.class);
+                            String username = user.getUsername();
+                            String password = user.getPassword();
+                            if(editTextUsername.getText().toString(). equals(username)){
+                                if(editTextPassword.getText().toString().equals(password)){
+                                    userFound = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if(userFound){
+                            Toast.makeText(MainActivity.this,"buldum accountu",
+                                    Toast.LENGTH_SHORT).show();
+                            logged();
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this,"account bulunamadı",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
         });
 
     }
-    public void createUser(){
 
-    }
-    public void loginUser(){
-
-    }
 }
