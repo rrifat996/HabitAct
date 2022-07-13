@@ -1,5 +1,6 @@
 package com.example.csprojedeneme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,8 +24,7 @@ public class MainActivity3 extends AppCompatActivity{
     private Button btnSignup2;
     private boolean isDuplicateUser = false;
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference usersRef = db.collection("users");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -38,12 +38,17 @@ public class MainActivity3 extends AppCompatActivity{
 
 
     }
+    public void getNext(){
+        Intent intent = new Intent(this, LoggedActivity.class);
+
+        startActivity(intent);
+    }
     public void signup2Click(View v){
         String typedUsername = editTextUsername2.getText().toString();
         String firstPassword = editTextPassword2.getText().toString();
         String secondPassword = editTextPassword3.getText().toString();
 
-        usersRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        MainActivity.usersRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 isDuplicateUser = false;
@@ -57,14 +62,32 @@ public class MainActivity3 extends AppCompatActivity{
                 if(!isDuplicateUser){
                     if(firstPassword.equals(secondPassword)){
                         User user = new User(typedUsername, firstPassword, 0);
-                        usersRef.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+
+                        MainActivity.usersRef.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Toast.makeText(MainActivity3.this,"user added database",
                                         Toast.LENGTH_SHORT).show();
-                                setContentView(R.layout.activity_logged);
+                                MainActivity.usersRef.get()
+                                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                                for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                                                    User user = documentSnapshot.toObject(User.class);
+                                                    String username = user.getUsername();
+                                                    if(user.getUsername().equals(typedUsername)){
+                                                        SaveSharedPreference.setUserId(MainActivity3.this, documentSnapshot.getId());
+                                                        MainActivity.userRef = MainActivity.usersRef.document(SaveSharedPreference.getUserId(MainActivity3.this));
+                                                        break;
+                                                    }
+                                                }
+                                            }
+
+                                        });
+                                getNext();
                             }
                         });
+
 
                     }
                     else {

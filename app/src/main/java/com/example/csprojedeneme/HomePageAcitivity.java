@@ -6,34 +6,37 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 
-public class LoggedActivity extends AppCompatActivity {
-    private EditText enterName;
-    private Button continueButton;
+public class HomePageAcitivity extends AppCompatActivity {
+
+    private Button settingsButton;
+    private TextView welcomeText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logged);
+        setContentView(R.layout.activity_home_page_acitivity);
 
-        enterName = (EditText)findViewById(R.id.enterName);
-        continueButton = (Button)findViewById(R.id.continueButton);
+        settingsButton = (Button)findViewById(R.id.settingsButton);
+        welcomeText = (TextView) findViewById(R.id.welcomeText);
 
-    }
-    public void continueTo(View v){
         MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Toast.makeText(LoggedActivity.this,"continued",
+                Toast.makeText(HomePageAcitivity.this,"got name",
                         Toast.LENGTH_SHORT).show();
-                MainActivity.userRef.update("realName", enterName.getText().toString());
+
+                welcomeText.setText("Welcome, " + documentSnapshot.toObject(User.class).getRealName());
             }
         });
-        Intent intent = new Intent(this, HomePageAcitivity.class);
+
+    }
+    public void settingsMenu(View v){
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 }

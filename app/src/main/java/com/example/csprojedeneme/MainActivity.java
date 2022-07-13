@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -25,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLogin;
     private Button btnSignup;
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference usersRef = db.collection("users");
+    public static FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public static CollectionReference usersRef = db.collection("users");
+    public static DocumentReference userRef;
 
     private boolean userFound = false;
 
@@ -37,9 +39,19 @@ public class MainActivity extends AppCompatActivity {
 
         editTextUsername = (EditText)findViewById(R.id.editTextUsername);
         editTextPassword = (EditText)findViewById(R.id.editTextPassword);
-
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnSignup = (Button)findViewById(R.id.btnSignup);
+
+        if(SaveSharedPreference.getUserId(MainActivity.this).length() == 0)
+        {
+            // It will stay
+        }
+        else
+        {
+            userRef = usersRef.document(SaveSharedPreference.getUserId(MainActivity.this));
+            Intent intent = new Intent(this, HomePageAcitivity.class);
+            startActivity(intent);
+        }
 
 
     }
@@ -53,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         signup();
     }
     public void logged(){
-        Intent intent = new Intent(this, LoggedActivity.class);
+
+        Intent intent = new Intent(this, HomePageAcitivity.class);
         startActivity(intent);
     }
 
@@ -61,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         userFound = false;
         usersRef.get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
@@ -71,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
                             if(editTextUsername.getText().toString(). equals(username)){
                                 if(editTextPassword.getText().toString().equals(password)){
                                     userFound = true;
+                                    SaveSharedPreference.setUserId(MainActivity.this, documentSnapshot.getId());
+                                    userRef = usersRef.document(SaveSharedPreference.getUserId(MainActivity.this));
                                     break;
                                 }
                             }

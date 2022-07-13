@@ -4,6 +4,7 @@ public class User {
     private String username;
     private String password;
     private int index;
+    private String realName;
 
     public User(String username, String password, int index) {
         this.username = username;
@@ -22,5 +23,11 @@ public class User {
     }
     public int index(){
         return index;
+    }
+    public void setRealName(String str){
+        realName = str;
+    }
+    public String getRealName(){
+        return realName;
     }
 }
