@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void signup(){
-        Intent intent = new Intent(this, LoggedActivity.class);
+        Intent intent = new Intent(this, MainActivity3.class);
         startActivity(intent);
     }
     public void signupClick(View v){
@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
     public void logged(){
         Intent intent = new Intent(this, LoggedActivity.class);
         startActivity(intent);
-        setContentView(R.layout.activity_logged);
     }
 
     public void lgnClick(View v){
