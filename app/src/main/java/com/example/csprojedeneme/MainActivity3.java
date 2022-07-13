@@ -1,5 +1,6 @@
 package com.example.csprojedeneme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,10 @@ public class MainActivity3 extends AppCompatActivity{
 
 
     }
+    public void getNext(){
+        Intent intent = new Intent(this, LoggedActivity.class);
+        startActivity(intent);
+    }
     public void signup2Click(View v){
         String typedUsername = editTextUsername2.getText().toString();
         String firstPassword = editTextPassword2.getText().toString();
@@ -57,12 +62,14 @@ public class MainActivity3 extends AppCompatActivity{
                 if(!isDuplicateUser){
                     if(firstPassword.equals(secondPassword)){
                         User user = new User(typedUsername, firstPassword, 0);
+                        MainActivity.loggedUser = user;
+
                         usersRef.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Toast.makeText(MainActivity3.this,"user added database",
                                         Toast.LENGTH_SHORT).show();
-                                setContentView(R.layout.activity_logged);
+                                getNext();
                             }
                         });
 

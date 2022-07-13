@@ -28,12 +28,39 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference usersRef = db.collection("users");
 
+    public static User loggedUser;
+
     private boolean userFound = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(SaveSharedPreference.getUserName(MainActivity.this).length() == 0)
+        {
+            //Maybe change later
+        }
+        else
+        {
+            usersRef.get()
+                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                        @Override
+                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                            for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                                User user = documentSnapshot.toObject(User.class);
+                                if(user.getUsername().equals(SaveSharedPreference.getUserName(MainActivity.this))){
+                                    loggedUser = user;
+                                    break;
+                                }
+                            }
+
+                        }
+                    });
+            Intent intent = new Intent(this, HomePageAcitivity.class);
+            startActivity(intent);
+
+        }
 
         editTextUsername = (EditText)findViewById(R.id.editTextUsername);
         editTextPassword = (EditText)findViewById(R.id.editTextPassword);
@@ -53,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
         signup();
     }
     public void logged(){
-        Intent intent = new Intent(this, LoggedActivity.class);
+
+        Intent intent = new Intent(this, HomePageAcitivity.class);
         startActivity(intent);
     }
 
@@ -64,13 +92,16 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        String usernameForShared = "";
                         for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
                             User user = documentSnapshot.toObject(User.class);
                             String username = user.getUsername();
+                            usernameForShared = username;
                             String password = user.getPassword();
                             if(editTextUsername.getText().toString(). equals(username)){
                                 if(editTextPassword.getText().toString().equals(password)){
                                     userFound = true;
+                                    loggedUser = user;
                                     break;
                                 }
                             }
@@ -78,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         if(userFound){
                             Toast.makeText(MainActivity.this,"buldum accountu",
                                     Toast.LENGTH_SHORT).show();
+                            SaveSharedPreference.setUserName(getApplicationContext(), usernameForShared);
                             logged();
                         }
                         else{
