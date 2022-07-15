@@ -42,31 +42,22 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnSignup = (Button)findViewById(R.id.btnSignup);
 
-        if(SaveSharedPreference.getUserId(MainActivity.this).length() == 0)
-        {
-            // It will stay
-        }
-        else
+        //This mean it has already login before (did not logout afterwards) directed to homepage
+        if(SaveSharedPreference.getUserId(MainActivity.this).length() != 0)
         {
             userRef = usersRef.document(SaveSharedPreference.getUserId(MainActivity.this));
             Intent intent = new Intent(this, HomePageAcitivity.class);
             startActivity(intent);
         }
 
-
-    }
-    public void signup(){
-        Intent intent = new Intent(this, MainActivity3.class);
-        startActivity(intent);
-    }
-    public void signupClick(View v){
-        Toast.makeText(MainActivity.this,"signup clicked",
-                Toast.LENGTH_SHORT).show();
-        signup();
     }
     public void logged(){
-
         Intent intent = new Intent(this, HomePageAcitivity.class);
+        startActivity(intent);
+    }
+
+    public void signupClick(View v){
+        Intent intent = new Intent(this, MainActivity3.class);
         startActivity(intent);
     }
 
@@ -99,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
-
         });
 
     }

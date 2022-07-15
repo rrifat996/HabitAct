@@ -24,8 +24,6 @@ public class MainActivity3 extends AppCompatActivity{
     private Button btnSignup2;
     private boolean isDuplicateUser = false;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -36,11 +34,9 @@ public class MainActivity3 extends AppCompatActivity{
 
         btnSignup2 = (Button)findViewById(R.id.btnSignup2);
 
-
     }
     public void getNext(){
         Intent intent = new Intent(this, LoggedActivity.class);
-
         startActivity(intent);
     }
     public void signup2Click(View v){
