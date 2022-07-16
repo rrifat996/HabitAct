@@ -15,11 +15,9 @@ public class HomePageAcitivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page_acitivity);
+        setContentView(R.layout.home_page);
 
         settingsButton = (Button)findViewById(R.id.settingsButton);
-        welcomeText = (TextView) findViewById(R.id.welcomeText);
-        welcomeText.setText("Welcome, " + MainActivity.loggedUser.getRealName());
     }
     public void settingsMenu(View v){
         Intent intent = new Intent(this, SettingsActivity.class);

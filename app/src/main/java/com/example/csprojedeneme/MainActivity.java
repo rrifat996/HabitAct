@@ -55,9 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
-            //Intent intent = new Intent(this, LoggedActivity.class);
-            //startActivity(intent);
-
         }
 
         editTextUsername = (EditText)findViewById(R.id.editTextUsername);
@@ -73,13 +70,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void signupClick(View v){
-        Toast.makeText(MainActivity.this,"signup clicked",
+        Toast.makeText(MainActivity.this,"Sign up clicked",
                 Toast.LENGTH_SHORT).show();
         signup();
     }
     public void logged(){
 
-        Intent intent = new Intent(this, LoggedActivity.class);
+        Intent intent = new Intent(this, HomePageAcitivity.class);
         startActivity(intent);
     }
 
@@ -105,13 +102,13 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                         if(userFound){
-                            Toast.makeText(MainActivity.this,"buldum accountu",
+                            Toast.makeText(MainActivity.this,"Account Found, Login successful.",
                                     Toast.LENGTH_SHORT).show();
                             SaveSharedPreference.setUserName(getApplicationContext(), usernameForShared);
                             logged();
                         }
                         else{
-                            Toast.makeText(MainActivity.this,"account bulunamadı",
+                            Toast.makeText(MainActivity.this,"Account not found.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }

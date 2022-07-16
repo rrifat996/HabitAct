@@ -32,7 +32,7 @@
             android:name=".HomePageAcitivity"
             android:exported="false" />
         <activity
-            android:name=".LoggedActivity"
+            android:name=".CreatingCharacterActivity"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"

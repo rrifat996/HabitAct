@@ -25,12 +25,13 @@
         android:id="@+id/editTextPassword2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="5dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="321dp"
+
         android:hint="Password"
-        android:inputType="text" />
+        android:inputType="text"
+        android:paddingLeft="5dp" />
 
     <EditText
         android:id="@+id/editTextPassword3"
