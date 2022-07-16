@@ -9,6 +9,6 @@ public class WeeklyPlanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weekly_plan);
+        setContentView(R.layout.weekly_plan);
     }
 }

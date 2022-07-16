@@ -35,7 +35,7 @@
             android:name=".LoggedActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity3"
+            android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

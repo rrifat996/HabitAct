@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class MainActivity3 extends AppCompatActivity{
+public class SignUpActivity extends AppCompatActivity{
     private EditText editTextUsername2;
     private EditText editTextPassword2;
     private EditText editTextPassword3;
@@ -30,7 +30,7 @@ public class MainActivity3 extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.sign_up);
         editTextUsername2 = (EditText)findViewById(R.id.editTextUsername2);
         editTextPassword2 = (EditText)findViewById(R.id.editTextPassword2);
         editTextPassword3 = (EditText)findViewById(R.id.editTextPassword3);
@@ -67,7 +67,7 @@ public class MainActivity3 extends AppCompatActivity{
                         usersRef.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(MainActivity3.this,"user added database",
+                                Toast.makeText(SignUpActivity.this,"user added database",
                                         Toast.LENGTH_SHORT).show();
                                 getNext();
                             }
@@ -75,12 +75,12 @@ public class MainActivity3 extends AppCompatActivity{
 
                     }
                     else {
-                        Toast.makeText(MainActivity3.this, "passwords do not match",
+                        Toast.makeText(SignUpActivity.this, "passwords do not match",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
-                    Toast.makeText(MainActivity3.this,"this username is taken",
+                    Toast.makeText(SignUpActivity.this,"this username is taken",
                             Toast.LENGTH_SHORT).show();
                 }
             }

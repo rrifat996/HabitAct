@@ -11,9 +11,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -57,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
-            Intent intent = new Intent(this, HomePageAcitivity.class);
-            startActivity(intent);
+            //Intent intent = new Intent(this, LoggedActivity.class);
+            //startActivity(intent);
 
         }
 
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void signup(){
-        Intent intent = new Intent(this, MainActivity3.class);
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
     public void signupClick(View v){
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void logged(){
 
-        Intent intent = new Intent(this, HomePageAcitivity.class);
+        Intent intent = new Intent(this, LoggedActivity.class);
         startActivity(intent);
     }
 

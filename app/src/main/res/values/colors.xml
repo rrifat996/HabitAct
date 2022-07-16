@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="log_screen_color">#eeb9a7</color>
+    <color name="log_button_color">#EF4824</color>
+    <color name="general_background">#CFD0EE</color>
 </resources>

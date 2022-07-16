@@ -3,6 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.218" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/drawable/custom_button.xml" value="0.2175" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/drawable/ic_launcher_background.xml" value="0.218" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/font/fonts.xml" value="0.2441214194100043" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/layout/activity_home_page_acitivity.xml" value="0.1893971782813168" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/layout/activity_logged.xml" value="0.21829710144927536" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/layout/activity_main3.xml" value="0.264" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/layout/activity_settings.xml" value="0.2201795639162035" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/layout/creating_character.xml" value="0.25" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/layout/layoutdeneme.xml" value="0.2105978260869565" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/layout/settings.xml" value="0.2201795639162035" />
+        <entry key="..\:/Users/ismail/Desktop/CS102/cs102proje/app/src/main/res/layout/weekly_plan.xml" value="0.1893971782813168" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_challenges.xml" value="0.21197916666666666" />
