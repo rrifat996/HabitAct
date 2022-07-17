@@ -6,20 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".LoggedActivity">
+    tools:context=".HomePageAcitivity">
 
-
-    <EditText
-        android:id="@+id/enterName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Your Name"
-        android:inputType="text" />
 
     <Button
-        android:id="@+id/continueButton"
+        android:id="@+id/settingsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="continueTo"
-        android:text="continue" />
+        android:onClick="settingsMenu"
+        android:text="settings" />
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="example" />
 </LinearLayout>
