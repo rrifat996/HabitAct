@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSignup;
 
     public static FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public static CollectionReference challengesRef = db.collection("challenges");
     public static CollectionReference usersRef = db.collection("users");
     public static DocumentReference userRef;
 

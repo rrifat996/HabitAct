@@ -3,13 +3,14 @@ package com.example.csprojedeneme;
 public class User {
     private String username;
     private String password;
-    private int index;
+    private int xp;
     private String realName;
-
-    public User(String username, String password, int index) {
+    private String[] lastChallengesIds;
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.index = index;
+        this.xp = 0;
+        lastChallengesIds = new String[3];
     }
 
     public User() {
@@ -21,13 +22,21 @@ public class User {
     public String getPassword(){
         return password;
     }
-    public int index(){
-        return index;
+    public int getXp(){
+        return xp;
     }
     public void setRealName(String str){
         realName = str;
     }
     public String getRealName(){
         return realName;
+    }
+
+    public String[] getLastChallengesIds() {
+        return lastChallengesIds;
+    }
+
+    public void setLastChallengesIds(String[] lastChallengesIds) {
+        this.lastChallengesIds = lastChallengesIds;
     }
 }

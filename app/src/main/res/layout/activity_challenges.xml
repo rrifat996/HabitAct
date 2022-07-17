@@ -6,4 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".ChallengesActivity">
 
+    <Button
+        android:id="@+id/meetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="meet"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="258dp" />
+
+    <Button
+        android:id="@+id/prevChallangeThird"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:text="prev3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meetBtn"
+        app:layout_constraintVertical_bias="0.501" />
+
+    <Button
+        android:id="@+id/prevChallangeSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="prev2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meetBtn"
+        tools:layout_editor_absoluteX="158dp" />
+
+    <Button
+        android:id="@+id/createBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="create"
+        app:layout_constraintBottom_toTopOf="@+id/meetBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="158dp" />
+
+    <Button
+        android:id="@+id/prevChallangeFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="prev1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/prevChallangeSecond"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meetBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

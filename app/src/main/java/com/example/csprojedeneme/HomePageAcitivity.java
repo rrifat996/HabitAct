@@ -14,16 +14,18 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 public class HomePageAcitivity extends AppCompatActivity {
 
-    private Button settingsButton;
+    private Button storeButton,weeklyPlanButton,challengesButton,statisticsButton,settingsButton;
     private TextView welcomeText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_acitivity);
-
-        settingsButton = (Button)findViewById(R.id.settingsButton);
         welcomeText = (TextView) findViewById(R.id.welcomeText);
-
+        storeButton = (Button)findViewById(R.id.storeButton);
+        weeklyPlanButton = (Button)findViewById(R.id.weeklyPlanButton);
+        challengesButton = (Button)findViewById(R.id.challengesButton);
+        statisticsButton = (Button)findViewById(R.id.statisticsButton);
+        settingsButton = (Button)findViewById(R.id.settingsButton);
         MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -34,6 +36,22 @@ public class HomePageAcitivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void storeMenu(View v){
+        Intent intent = new Intent(this, StoreActivity.class);
+        startActivity(intent);
+    }
+    public void weeklyPlanMenu(View v){
+        Intent intent = new Intent(this, WeeklyPlanActivity.class);
+        startActivity(intent);
+    }
+    public void challengesMenu(View v){
+        Intent intent = new Intent(this, ChallengesActivity.class);
+        startActivity(intent);
+    }
+    public void statisticsMenu(View v){
+        Intent intent = new Intent(this, StatisticsActivity.class);
+        startActivity(intent);
     }
     public void settingsMenu(View v){
         Intent intent = new Intent(this, SettingsActivity.class);

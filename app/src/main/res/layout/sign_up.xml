@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_text_password12"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/log_screen_color"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".SignUpActivity">
+
+    <EditText
+        android:id="@+id/editTextUsername2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="5dp"
+        android:layout_marginTop="275dp"
+        android:hint="Username"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextPassword2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="321dp"
+
+        android:hint="Password"
+        android:inputType="text"
+        android:paddingLeft="5dp" />
+
+    <EditText
+        android:id="@+id/editTextPassword3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="370dp"
+        android:paddingLeft="5dp"
+        android:hint="Password again"
+        android:inputType="text" />
+
+    <ImageView
+        android:layout_width="137dp"
+        android:layout_height="147dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="38dp"
+        android:src="@drawable/logo" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignup2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="447dp"
+        android:background="@drawable/custom_button"
+        android:onClick="signup2Click"
+        android:text="Signup"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp" />
+
+
+</RelativeLayout>
