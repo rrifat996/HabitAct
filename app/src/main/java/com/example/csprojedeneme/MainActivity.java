@@ -3,9 +3,12 @@ package com.example.csprojedeneme;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private CollectionReference usersRef = db.collection("users");
 
     public static User loggedUser;
+    private CheckBox remember;
 
     private boolean userFound = false;
 
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        remember = findViewById(R.id.rememberMe);
 
         if(SaveSharedPreference.getUserName(MainActivity.this).length() == 0)
         {
@@ -41,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            usersRef.get()
-                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            usersRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                             for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
@@ -62,6 +66,38 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnSignup = (Button)findViewById(R.id.btnSignup);
+
+        SharedPreferences preferences = getSharedPreferences("CheckBox", MODE_PRIVATE);
+        String CheckBox = preferences.getString("remember","");
+
+        if(CheckBox.equals("true")){
+            Intent intent = new Intent(MainActivity.this,HomePageAcitivity.class);
+            startActivity(intent);
+        }
+        else if(CheckBox.equals("false")){
+            Toast.makeText(this,"Please sign in.", Toast.LENGTH_SHORT).show();
+        }
+
+        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+                if(compoundButton.isChecked()){
+                    SharedPreferences preferences = getSharedPreferences("CheckBox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember", "true");
+                    editor.apply();
+                    Toast.makeText(MainActivity.this,"Checked",Toast.LENGTH_SHORT).show();
+                }
+                else if(!compoundButton.isChecked()){
+                    SharedPreferences preferences = getSharedPreferences("CheckBox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember", "false");
+                    editor.apply();
+                    Toast.makeText(MainActivity.this,"Unchecked",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
     }
