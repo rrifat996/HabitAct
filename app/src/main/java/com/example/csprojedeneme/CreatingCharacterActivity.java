@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 public class CreatingCharacterActivity extends AppCompatActivity {
     private EditText enterName;
@@ -14,15 +18,22 @@ public class CreatingCharacterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.creating_character);
+        setContentView(R.layout.activity_logged);
 
         enterName = (EditText)findViewById(R.id.enterName);
         continueButton = (Button)findViewById(R.id.continueButton);
 
     }
     public void continueTo(View v){
-        MainActivity.loggedUser.setRealName(enterName.getText().toString());
-        Intent intent = new Intent(this, HomePageAcitivity.class);
+        MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Toast.makeText(CreatingCharacterActivity.this,"continued",
+                        Toast.LENGTH_SHORT).show();
+                MainActivity.userRef.update("realName", enterName.getText().toString());
+            }
+        });
+        Intent intent = new Intent(this, HomePageActivity.class);
         startActivity(intent);
     }
 }

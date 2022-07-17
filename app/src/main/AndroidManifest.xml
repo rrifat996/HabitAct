@@ -41,7 +41,7 @@
             android:name=".StoreActivity"
             android:exported="false" />
         <activity
-            android:name=".HomePageAcitivity"
+            android:name=".HomePageActivity"
             android:exported="false" />
         <activity
             android:name=".LoggedActivity"
@@ -59,13 +59,10 @@
             android:name=".StoreActivity"
             android:exported="false" />
         <activity
-            android:name=".HomePageAcitivity"
+            android:name=".HomePageActivity"
             android:exported="false" />
         <activity
             android:name=".CreatingCharacterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

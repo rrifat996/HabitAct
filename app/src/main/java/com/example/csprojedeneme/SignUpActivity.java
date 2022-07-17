@@ -24,9 +24,6 @@ public class SignUpActivity extends AppCompatActivity{
     private Button btnSignup2;
     private boolean isDuplicateUser = false;
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference usersRef = db.collection("users");
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -37,10 +34,9 @@ public class SignUpActivity extends AppCompatActivity{
 
         btnSignup2 = (Button)findViewById(R.id.btnSignup2);
 
-
     }
     public void getNext(){
-        Intent intent = new Intent(this, CreatingCharacterActivity.class);
+        Intent intent = new Intent(this, LoggedActivity.class);
         startActivity(intent);
     }
     public void signup2Click(View v){
@@ -48,7 +44,7 @@ public class SignUpActivity extends AppCompatActivity{
         String firstPassword = editTextPassword2.getText().toString();
         String secondPassword = editTextPassword3.getText().toString();
 
-        usersRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        MainActivity.usersRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 isDuplicateUser = false;
@@ -61,17 +57,33 @@ public class SignUpActivity extends AppCompatActivity{
                 }
                 if(!isDuplicateUser){
                     if(firstPassword.equals(secondPassword)){
-                        User user = new User(typedUsername, firstPassword, 0);
-                        MainActivity.loggedUser = user;
+                        User user = new User(typedUsername, firstPassword);
 
-                        usersRef.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        MainActivity.usersRef.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Toast.makeText(SignUpActivity.this,"user added database",
                                         Toast.LENGTH_SHORT).show();
+                                MainActivity.usersRef.get()
+                                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                                for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                                                    User user = documentSnapshot.toObject(User.class);
+                                                    String username = user.getUsername();
+                                                    if(user.getUsername().equals(typedUsername)){
+                                                        SaveSharedPreference.setUserId(SignUpActivity.this, documentSnapshot.getId());
+                                                        MainActivity.userRef = MainActivity.usersRef.document(SaveSharedPreference.getUserId(SignUpActivity.this));
+                                                        break;
+                                                    }
+                                                }
+                                            }
+
+                                        });
                                 getNext();
                             }
                         });
+
 
                     }
                     else {

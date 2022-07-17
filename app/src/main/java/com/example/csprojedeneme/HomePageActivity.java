@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 
-public class HomePageAcitivity extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity {
 
     private Button storeButton,weeklyPlanButton,challengesButton,statisticsButton,settingsButton;
     private TextView welcomeText;
@@ -20,7 +20,7 @@ public class HomePageAcitivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_acitivity);
-        welcomeText = (TextView) findViewById(R.id.welcomeText);
+        //welcomeText = (TextView) findViewById(R.id.welcomeText);
         storeButton = (Button)findViewById(R.id.storeButton);
         weeklyPlanButton = (Button)findViewById(R.id.weeklyPlanButton);
         challengesButton = (Button)findViewById(R.id.challengesButton);
@@ -29,10 +29,10 @@ public class HomePageAcitivity extends AppCompatActivity {
         MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Toast.makeText(HomePageAcitivity.this,"got name",
+                Toast.makeText(HomePageActivity.this,"got name",
                         Toast.LENGTH_SHORT).show();
 
-                welcomeText.setText("Welcome, " + documentSnapshot.toObject(User.class).getRealName());
+    //            welcomeText.setText("Welcome, " + documentSnapshot.toObject(User.class).getRealName());
             }
         });
 
