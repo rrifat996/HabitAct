@@ -13,8 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CSPROJEDENEME"
         tools:targetApi="31">
+
+
         <activity
             android:name=".ThirdChallenge"
+            android:exported="false" />
+        <activity
+            android:name=".MeetChallenge"
             android:exported="false" />
         <activity
             android:name=".SecondChallenge"
@@ -23,7 +28,7 @@
             android:name=".FirstChallenge"
             android:exported="false" />
         <activity
-            android:name=".CreateChallange"
+            android:name=".CreateChallenge"
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"
@@ -45,21 +50,6 @@
             android:exported="false" />
         <activity
             android:name=".LoggedActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StatisticsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ChallengesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".WeeklyPlanActivity"
-            android:exported="false" />
-        <activity
-            android:name=".StoreActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomePageActivity"
             android:exported="false" />
         <activity
             android:name=".CreatingCharacterActivity"

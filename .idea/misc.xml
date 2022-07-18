@@ -4,23 +4,31 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
+        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/drawable/ic_baseline_accessibility_24.xml" value="0.243" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
-        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_challenges.xml" value="0.21197916666666666" />
+        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_challenges.xml" value="0.1" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_createa_challange.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_example_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_first_challenge.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_home_page_acitivity.xml" value="0.19322916666666667" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_logged.xml" value="0.1" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_main2.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_main3.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_meet_challenge.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_meet_challenge.xml" value="0.176" />
+        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_recycler.xml" value="0.1" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_settings.xml" value="0.21197916666666666" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_statistics.xml" value="0.21197916666666666" />
+        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_store.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_third_challenge.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_weekly_plan.xml" value="0.21197916666666666" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/activity_zero_acitivity.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/challenges.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/home_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/item.xml" value="0.4" />
+        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/settings.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/sign_up.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/store.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rifat/AndroidStudioProjects/CSPROJEDENEME/app/src/main/res/layout/weekly_plan.xml" value="0.20520833333333333" />
       </map>
     </option>

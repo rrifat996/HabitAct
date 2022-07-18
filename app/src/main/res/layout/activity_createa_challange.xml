@@ -7,7 +7,7 @@
     android:onClick="createBtnClick2"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".CreateChallange">
+    tools:context=".CreateChallenge">
 
     <EditText
         android:id="@+id/challengeName"
@@ -28,7 +28,7 @@
         android:id="@+id/createBtn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="signupClick"
+        android:onClick="createBtnClick2"
         android:text="create" />
 
 

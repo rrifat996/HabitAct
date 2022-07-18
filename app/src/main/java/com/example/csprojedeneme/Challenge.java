@@ -3,6 +3,7 @@ package com.example.csprojedeneme;
 public class Challenge {
     private String challengeName;
     private String creatorId;
+    private String creatorName;
     private String description;
     private boolean isActive;
 
@@ -11,7 +12,9 @@ public class Challenge {
         this.creatorId = creatorId;
         this.description = description;
         this.isActive = true;
+ //       this.creatorName = creatorName;
     }
+    public Challenge(){}
 
     public String getChallengeName() {
         return challengeName;
@@ -43,6 +46,14 @@ public class Challenge {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public String getCreatorName() {
+        return creatorName;
+    }
+
+    public void setCreatorName(String creatorName) {
+        this.creatorName = creatorName;
     }
 }
 

@@ -3,7 +3,6 @@ package com.example.csprojedeneme;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,15 +12,14 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
-public class CreateChallange extends AppCompatActivity {
+public class CreateChallenge extends AppCompatActivity {
 
     private EditText challengeName;
     private EditText description;
     private Button createBtn2;
     private String docId;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +30,34 @@ public class CreateChallange extends AppCompatActivity {
         challengeName = (EditText)findViewById(R.id.challengeName);
         description = (EditText)findViewById(R.id.description);
     }
+    public void getBack(){
+        Intent intent = new Intent(this, ChallengesActivity.class);
+        startActivity(intent);
+    }
     public void createBtnClick2(View v) {
         String title = challengeName.getText().toString();
         String desc = description.getText().toString();
 
-        Challenge challenge = new Challenge(title, SaveSharedPreference.getUserId(CreateChallange.this), desc);
+        Challenge challenge = new Challenge(title, SaveSharedPreference.getUserId(CreateChallenge.this), desc);
+        MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Toast.makeText(CreateChallenge.this,"got name",
+                        Toast.LENGTH_SHORT).show();
+                userName = documentSnapshot.toObject(User.class).getRealName();
+                //            welcomeText.setText("Welcome, " + documentSnapshot.toObject(User.class).getRealName());
+            }
+        });
+        challenge.setCreatorName(userName);
         MainActivity.challengesRef.add(challenge).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {  // maybe get id later (meet)
-                Toast.makeText(CreateChallange.this,"document added database",
+                Toast.makeText(CreateChallenge.this,"document added database",
                         Toast.LENGTH_SHORT).show();
+
             }
         });
-
-
-
-
+        getBack();
     }
 }
 /*

@@ -27,22 +27,22 @@ public class ChallengesActivity extends AppCompatActivity {
 
     }
     public void createBtnClick(View v){
-        Intent intent = new Intent(this, CreateChallange.class);
+        Intent intent = new Intent(this, CreateChallenge.class);
         startActivity(intent);
     }
     public void meetBtnClick(View v){
         Intent intent = new Intent(this, MeetChallenge.class);
         startActivity(intent);
     }
-    public void prevChallangeFirstClick(View v){
+    public void prevChallengeFirstClick(View v){
         Intent intent = new Intent(this, FirstChallenge.class);
         startActivity(intent);
     }
-    public void prevChallangeSecondClick(View v){
+    public void prevChallengeSecondClick(View v){
         Intent intent = new Intent(this, SecondChallenge.class);
         startActivity(intent);
     }
-    public void prevChallangeThirdClick(View v){
+    public void prevChallengeThirdClick(View v){
         Intent intent = new Intent(this, ThirdChallenge.class);
         startActivity(intent);
     }
