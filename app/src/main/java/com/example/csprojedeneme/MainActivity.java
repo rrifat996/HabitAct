@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnSignup = (Button)findViewById(R.id.btnSignup);
 
+
         //This mean it has already login before (did not logout afterwards) directed to homepage
         if(SaveSharedPreference.getUserId(MainActivity.this).length() != 0)
         {

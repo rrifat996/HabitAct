@@ -1,16 +1,25 @@
 package com.example.csprojedeneme;
 
+import java.util.ArrayList;
+
 public class User {
     private String username;
     private String password;
     private int xp;
     private String realName;
-    private String[] lastChallengesIds;
+    private String challange1;
+    private String challange2;
+    private String challange3;
+    private ArrayList<String> friendList;
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
         this.xp = 0;
-        lastChallengesIds = new String[3];
+        challange1 = "";
+        challange2 = "";
+        challange3 = "";
+        friendList = new ArrayList<>();
     }
 
     public User() {
@@ -32,11 +41,47 @@ public class User {
         return realName;
     }
 
-    public String[] getLastChallengesIds() {
-        return lastChallengesIds;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setLastChallengesIds(String[] lastChallengesIds) {
-        this.lastChallengesIds = lastChallengesIds;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+
+    public String getChallange1() {
+        return challange1;
+    }
+
+    public void setChallange1(String challange1) {
+        this.challange1 = challange1;
+    }
+
+    public String getChallange2() {
+        return challange2;
+    }
+
+    public void setChallange2(String challange2) {
+        this.challange2 = challange2;
+    }
+
+    public String getChallange3() {
+        return challange3;
+    }
+
+    public void setChallange3(String challange3) {
+        this.challange3 = challange3;
+    }
+
+    public ArrayList<String> getFriendList() {
+        return friendList;
+    }
+
+    public void setFriendList(ArrayList<String> friendList) {
+        this.friendList = friendList;
     }
 }

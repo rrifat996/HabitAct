@@ -18,7 +18,7 @@ public class CreatingCharacterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logged);
+        setContentView(R.layout.creating_character);
 
         enterName = (EditText)findViewById(R.id.enterName);
         continueButton = (Button)findViewById(R.id.continueButton);

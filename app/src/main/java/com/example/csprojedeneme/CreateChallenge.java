@@ -19,6 +19,7 @@ public class CreateChallenge extends AppCompatActivity {
     private EditText description;
     private Button createBtn2;
     private String docId;
+    private DocumentReference docRef;
     private String userName;
 
     @Override
@@ -54,10 +55,19 @@ public class CreateChallenge extends AppCompatActivity {
             public void onSuccess(DocumentReference documentReference) {  // maybe get id later (meet)
                 Toast.makeText(CreateChallenge.this,"document added database",
                         Toast.LENGTH_SHORT).show();
-
+                docId = documentReference.getId();
+                docRef = documentReference;
+                setId();
+                setCreator();
             }
         });
         getBack();
+    }
+    public void setId(){
+        docRef.update("id", docId);
+    }
+    public void setCreator(){
+        docRef.update("creatorName", userName);
     }
 }
 /*
