@@ -1,35 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="createBtnClick2"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".CreateChallenge">
 
+    <ImageView
+        android:layout_width="299dp"
+        android:layout_height="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/create_challenge" />
+
     <EditText
         android:id="@+id/challengeName"
-        android:layout_width="match_parent"
+        android:layout_width="304dp"
+        android:layout_height="58dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginEnd="142dp"
+        android:hint="Enter title"
+        android:inputType="text" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/createBtn2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="enter title"
-        android:inputType="text"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="53dp"
+        android:background="@drawable/just_create"
         android:onClick="createBtnClick2" />
+
+    <ImageView
+        android:id="@+id/title_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="105dp"
+        app:srcCompat="@drawable/title_icon" />
+
+    <ImageView
+        android:id="@+id/description_icon"
+        android:layout_width="376dp"
+        android:layout_height="312dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="137dp"
+        app:srcCompat="@drawable/description_icon" />
 
     <EditText
         android:id="@+id/description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="description"
-        android:inputType="text" />
+        android:layout_width="251dp"
+        android:layout_height="119dp"
+        android:layout_alignBottom="@+id/description_icon"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="383dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="307dp"
+        android:hint="Describe the activity or \nspecify the task"
+        android:inputType="text"
+        android:lines="2"
+        android:paddingBottom="1dp"
+        android:scaleType="fitStart" />
 
-    <Button
-        android:id="@+id/createBtn2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="createBtnClick2"
-        android:text="create" />
 
-
-</LinearLayout>
+</RelativeLayout>
