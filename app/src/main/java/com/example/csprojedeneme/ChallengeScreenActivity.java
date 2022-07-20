@@ -28,6 +28,8 @@ public class ChallengeScreenActivity extends AppCompatActivity {
     private boolean isUserCreator;
     private DocumentSnapshot currentChallenge;
     private DocumentReference currentChallengeRef;
+    private int prevCountFromDatabase;
+    private int prevXpFromDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,5 +105,33 @@ public class ChallengeScreenActivity extends AppCompatActivity {
             currentChallengeRef.update("meeterProgress", ownProgressBar.getProgress() + 10);
         }
         ownProgressBar.incrementProgressBy(10);
+        checkIfWon();
+    }
+    public void checkIfWon(){
+        if(ownProgressBar.getProgress() == 100 && currentChallenge.toObject(Challenge.class).isActive()){
+            progressButton.setVisibility (View.GONE);
+            currentChallengeRef.update("isActive", false);
+            Toast.makeText(ChallengeScreenActivity.this,"YOU WON",
+                    Toast.LENGTH_SHORT).show();
+            getUserChallengesWon();
+        }
+    }
+    public void getUserChallengesWon(){
+        MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                User user = documentSnapshot.toObject(User.class);
+                prevCountFromDatabase = user.getChallengesWon();
+                prevXpFromDatabase = user.getXp();
+                updateUser();
+            }
+        });
+    }
+
+
+    public void updateUser(){
+        MainActivity.userRef.update("challengesWon", prevCountFromDatabase + 1);
+        MainActivity.userRef.update("xp", prevXpFromDatabase + 10);
+
     }
 }

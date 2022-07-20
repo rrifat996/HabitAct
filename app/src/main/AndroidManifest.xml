@@ -14,10 +14,10 @@
         android:theme="@style/Theme.CSPROJEDENEME"
         tools:targetApi="31">
         <activity
-            android:name=".FriendsRankingActivity"
+            android:name=".GlobalRankingActivity"
             android:exported="false" />
         <activity
-            android:name=".GlobalRankingActivity"
+            android:name=".FriendListActivity"
             android:exported="false" />
         <activity
             android:name=".ChallengeScreenActivity"

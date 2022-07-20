@@ -14,11 +14,11 @@ public class StatisticsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_statistics);
     }
     public void friendsRankingClick(View v){
-        Intent intent = new Intent(this, FriendsRankingActivity.class);
+        Intent intent = new Intent(this, GlobalRankingActivity.class);
         startActivity(intent);
     }
     public void globalRankingClick(View v){
-        Intent intent = new Intent(this, GlobalRankingActivity.class);
+        Intent intent = new Intent(this, FriendListActivity.class);
         startActivity(intent);
     }
 

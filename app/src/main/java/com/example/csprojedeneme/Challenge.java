@@ -85,5 +85,6 @@ public class Challenge {
     public void setMeeterProgress(int meeterProgress) {
         this.meeterProgress = meeterProgress;
     }
+
 }
 

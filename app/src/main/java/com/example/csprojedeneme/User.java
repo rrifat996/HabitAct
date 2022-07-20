@@ -11,6 +11,8 @@ public class User {
     private String challange2;
     private String challange3;
     private ArrayList<String> friendList;
+    private int plansDone;
+    private int challengesWon;
 
     public User(String username, String password) {
         this.username = username;
@@ -20,6 +22,8 @@ public class User {
         challange2 = "";
         challange3 = "";
         friendList = new ArrayList<>();
+        plansDone = 0;
+        challengesWon = 0;
     }
 
     public User() {
@@ -83,5 +87,21 @@ public class User {
 
     public void setFriendList(ArrayList<String> friendList) {
         this.friendList = friendList;
+    }
+
+    public int getPlansDone() {
+        return plansDone;
+    }
+
+    public void setPlansDone(int plansDone) {
+        this.plansDone = plansDone;
+    }
+
+    public int getChallengesWon() {
+        return challengesWon;
+    }
+
+    public void setChallengesWon(int challengesWon) {
+        this.challengesWon = challengesWon;
     }
 }
