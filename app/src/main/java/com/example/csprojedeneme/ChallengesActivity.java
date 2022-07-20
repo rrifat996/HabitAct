@@ -14,6 +14,10 @@ public class ChallengesActivity extends AppCompatActivity {
     private Button prevChallangeFirst;
     private Button prevChallangeSecond;
     private Button prevChallangeThird;
+
+    public static int selectedButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,15 +39,18 @@ public class ChallengesActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void prevChallengeFirstClick(View v){
-        Intent intent = new Intent(this, FirstChallenge.class);
+        selectedButton = 1;
+        Intent intent = new Intent(this, ChallengeScreenActivity.class);
         startActivity(intent);
     }
     public void prevChallengeSecondClick(View v){
-        Intent intent = new Intent(this, SecondChallenge.class);
+        selectedButton = 2;
+        Intent intent = new Intent(this, ChallengeScreenActivity.class);
         startActivity(intent);
     }
     public void prevChallengeThirdClick(View v){
-        Intent intent = new Intent(this, ThirdChallenge.class);
+        selectedButton = 3;
+        Intent intent = new Intent(this, ChallengeScreenActivity.class);
         startActivity(intent);
     }
 }

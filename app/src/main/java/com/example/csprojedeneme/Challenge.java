@@ -5,6 +5,9 @@ public class Challenge {
     private String creatorId;
     private String creatorName;
     private String description;
+    private String id;
+    private int creatorProgress;
+    private int meeterProgress;
     private boolean isActive;
 
     public Challenge(String challengeName, String creatorId, String description) {
@@ -12,8 +15,11 @@ public class Challenge {
         this.creatorId = creatorId;
         this.description = description;
         this.isActive = true;
+        this.creatorProgress = 0;
+        this.meeterProgress = 0;
  //       this.creatorName = creatorName;
     }
+
     public Challenge(){}
 
     public String getChallengeName() {
@@ -54,6 +60,30 @@ public class Challenge {
 
     public void setCreatorName(String creatorName) {
         this.creatorName = creatorName;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getCreatorProgress() {
+        return creatorProgress;
+    }
+
+    public void setCreatorProgress(int creatorProgress) {
+        this.creatorProgress = creatorProgress;
+    }
+
+    public int getMeeterProgress() {
+        return meeterProgress;
+    }
+
+    public void setMeeterProgress(int meeterProgress) {
+        this.meeterProgress = meeterProgress;
     }
 }
 

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="addProgressBtn"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ChallengeScreenActivity">
+
+    <ProgressBar
+        android:id="@+id/ownProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="277dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.436" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="your progress"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="35dp" />
+
+    <ProgressBar
+        android:id="@+id/opponentProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="277dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.296" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="your opponent's progress"
+        tools:layout_editor_absoluteX="170dp"
+        tools:layout_editor_absoluteY="78dp" />
+
+    <Button
+        android:id="@+id/progressButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addProgressBtn"
+        android:text="add 10%"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintVertical_bias="0.509" />
+
+    <TextView
+        android:id="@+id/challengeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="challengeTitle"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="176dp" />
+
+    <TextView
+        android:id="@+id/challengeDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="challengeDescription"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+</LinearLayout>

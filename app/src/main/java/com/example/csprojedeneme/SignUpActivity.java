@@ -36,7 +36,7 @@ public class SignUpActivity extends AppCompatActivity{
 
     }
     public void getNext(){
-        Intent intent = new Intent(this, LoggedActivity.class);
+        Intent intent = new Intent(this, CreatingCharacterActivity.class);
         startActivity(intent);
     }
     public void signup2Click(View v){

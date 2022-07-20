@@ -5,59 +5,92 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ExampleAdapter extends RecyclerView.Adapter {
-    private ArrayList<Challenge> mChallenges;
 
+public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
+    private ArrayList<ExampleItem> mExampleList;
+    private OnItemClickListener mListener;
 
-    public static class ExampleViewHolder extends RecyclerView.ViewHolder{
+    public interface OnItemClickListener {
+        void onItemClick(int position);
 
-        public TextView mTitle;
-        public TextView mDescription;
-        public TextView mCreatorName;
-       // private String creatorId;
+        void onDeleteClick(int position);
+    }
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
 
-        public ExampleViewHolder(View itemView){
+    public static class ExampleViewHolder extends RecyclerView.ViewHolder {
+        public ImageView mImageView;
+        public TextView mTextView1;
+        public TextView mTextView2;
+        public ImageView mDeleteImage;
+
+        public ExampleViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
+            mImageView = itemView.findViewById(R.id.imageView);
+            mTextView1 = itemView.findViewById(R.id.textView);
+            mTextView2 = itemView.findViewById(R.id.textView2);
+            mDeleteImage = itemView.findViewById(R.id.image_delete);
 
-            mTitle = itemView.findViewById(R.id.mTitle);
-            mDescription = itemView.findViewById(R.id.mDescription);
-            mCreatorName = itemView.findViewById(R.id.mCreatorName);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
 
+            mDeleteImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onDeleteClick(position);
+                        }
+                    }
+                }
+            });
         }
-
-    }
-    public ExampleAdapter(ArrayList<Challenge> challenges){
-        mChallenges = challenges;
     }
 
-    @NonNull
+    public ExampleAdapter(ArrayList<ExampleItem> exampleList) {
+        mExampleList = exampleList;
+    }
+
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_example_item, parent, false);
-        ExampleViewHolder evh = new ExampleViewHolder(v);
+    public ExampleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item, parent, false);
+        ExampleViewHolder evh = new ExampleViewHolder(v, mListener);
         return evh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Challenge currentChallenge = mChallenges.get(position);
+    public void onBindViewHolder(ExampleViewHolder holder, int position) {
+        ExampleItem currentItem = mExampleList.get(position);
 
-        ExampleViewHolder holder1 = (ExampleViewHolder)holder;
-        holder1.mCreatorName.setText(currentChallenge.getCreatorName());
-        holder1.mDescription.setText(currentChallenge.getDescription());
-        holder1.mTitle.setText(currentChallenge.getChallengeName());
-
+        holder.mImageView.setImageResource(currentItem.getImageResource());
+        holder.mTextView1.setText(currentItem.getText1());
+        holder.mTextView2.setText(currentItem.getText2());
     }
 
     @Override
     public int getItemCount() {
-        return mChallenges.size();
+        return mExampleList.size();
     }
 }
