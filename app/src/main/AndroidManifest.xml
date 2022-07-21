@@ -14,6 +14,12 @@
         android:theme="@style/Theme.CSPROJEDENEME"
         tools:targetApi="31">
         <activity
+            android:name=".EventEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WeekViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".GlobalRankingActivity"
             android:exported="false" />
         <activity
@@ -50,9 +56,6 @@
             android:name=".ChallengesActivity"
             android:exported="false" />
         <activity
-            android:name=".WeeklyPlanActivity"
-            android:exported="false" />
-        <activity
             android:name=".StoreActivity"
             android:exported="false" />
         <activity
@@ -60,6 +63,9 @@
             android:exported="false" />
         <activity
             android:name=".CreatingCharacterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalendarMainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

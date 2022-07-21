@@ -30,13 +30,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginLeft="65dp"
         android:layout_marginTop="185dp"
         android:layout_marginRight="65dp"
-        android:layout_marginLeft="65dp"
         android:background="@color/weeklyPlan_button_color"
-        android:textSize="20dp"
         android:onClick="weeklyPlanMenu"
-        android:text="Weekly Plan" />
+        android:text="Weekly Plan"
+        android:textSize="20dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/challengesButton"
@@ -44,13 +44,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="245dp"
         android:layout_marginRight="60dp"
-        android:layout_marginLeft="60dp"
         android:background="@color/challenges_button_color"
-        android:textSize="20dp"
         android:onClick="challengesMenu"
-        android:text="Challenges" />
+        android:text="Challenges"
+        android:textSize="20dp" />
 
 
     <androidx.appcompat.widget.AppCompatButton
