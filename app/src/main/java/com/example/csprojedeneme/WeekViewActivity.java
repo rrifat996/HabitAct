@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class WeekViewActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
@@ -32,7 +35,16 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         CalendarUtils.selectedDate = LocalDate.now();
         initWidgets();
         setWeekView();
+        checkFromDatabase();
     }
+    private void checkFromDatabase() {
+        SharedPreferences sp = (SharedPreferences) getApplicationContext().getSharedPreferences("MyEventPrefs", Context.MODE_PRIVATE);
+        String name = sp.getString("name" , "");
+        String date = sp.getString("date", "");
+        String time = sp.getString("time","");
+        Event.eventsList.add(new Event(name,LocalDate.parse(date), LocalTime.parse(time)));
+    }
+
     private void initWidgets()
     {
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
