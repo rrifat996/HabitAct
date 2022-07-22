@@ -1,0 +1,3 @@
+What I have done?
+Database organization, Firebase document access, sorting and search methods, Challenge activities, statistics activities, weekly plan activities, login and registration algorithms, WeeklyPlan data storage and algorithm design.
+Other commmon goals and achievement thoughts about project is in the README.md
