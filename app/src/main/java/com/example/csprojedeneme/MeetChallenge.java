@@ -72,8 +72,9 @@ public class MeetChallenge extends AppCompatActivity {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-
-                    addIfMoreThanHalfTitle(documentSnapshot.toObject(Challenge.class));
+                    if(documentSnapshot.toObject(Challenge.class).isActive()){
+                        addIfMoreThanHalfTitle(documentSnapshot.toObject(Challenge.class));
+                    }
                 }
                 recyclerBuilder();
             }

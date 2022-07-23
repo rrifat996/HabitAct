@@ -105,7 +105,7 @@ public class ChallengesActivity extends AppCompatActivity {
         });
     }
     public void updateVariables1(String chId){
-        MainActivity.challengesRef.document(chId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+         MainActivity.challengesRef.document(chId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Challenge ch = documentSnapshot.toObject(Challenge.class);

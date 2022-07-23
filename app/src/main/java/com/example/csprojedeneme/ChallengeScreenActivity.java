@@ -43,9 +43,11 @@ public class ChallengeScreenActivity extends AppCompatActivity {
         challengeTitle = (TextView) findViewById(R.id.challengeTitle);
         challengeDescription = (TextView) findViewById(R.id.challengeDescription);
 
+
         setDocumentId();
 
     }
+
     public void setDocumentId(){
         MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -96,6 +98,7 @@ public class ChallengeScreenActivity extends AppCompatActivity {
             ownProgressBar.setProgress(currentChallenge.toObject(Challenge.class).getMeeterProgress());
             opponentProgressBar.setProgress(currentChallenge.toObject(Challenge.class).getCreatorProgress());
         }
+        checkIfWon(false);
     }
     public void addProgressBtn(View v){
         if(isUserCreator){
@@ -105,15 +108,17 @@ public class ChallengeScreenActivity extends AppCompatActivity {
             currentChallengeRef.update("meeterProgress", ownProgressBar.getProgress() + 10);
         }
         ownProgressBar.incrementProgressBy(10);
-        checkIfWon();
+        checkIfWon(true);
     }
-    public void checkIfWon(){
-        if(ownProgressBar.getProgress() == 100 && currentChallenge.toObject(Challenge.class).isActive()){
+    public void checkIfWon(boolean firstTime){
+        if(ownProgressBar.getProgress() >= 100 && currentChallenge.toObject(Challenge.class).isActive()){
             progressButton.setVisibility (View.GONE);
             currentChallengeRef.update("isActive", false);
             Toast.makeText(ChallengeScreenActivity.this,"YOU WON",
                     Toast.LENGTH_SHORT).show();
-            getUserChallengesWon();
+            if(firstTime){
+                getUserChallengesWon();
+            }
         }
     }
     public void getUserChallengesWon(){

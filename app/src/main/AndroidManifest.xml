@@ -29,19 +29,10 @@
             android:name=".ChallengeScreenActivity"
             android:exported="false" />
         <activity
-            android:name=".ThirdChallenge"
-            android:exported="false" />
-        <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".MeetChallenge"
-            android:exported="false" />
-        <activity
-            android:name=".SecondChallenge"
-            android:exported="false" />
-        <activity
-            android:name=".FirstChallenge"
             android:exported="false" />
         <activity
             android:name=".CreateChallenge"
