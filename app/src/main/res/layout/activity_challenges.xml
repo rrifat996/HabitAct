@@ -64,7 +64,7 @@
         app:layout_constraintVertical_bias="0.557" />
 
     <ImageView
-        android:id="@+id/prev1"
+        android:id="@+id/prevChallangeFirst"
         android:layout_width="113dp"
         android:layout_height="54dp"
         android:layout_alignParentStart="true"
@@ -72,6 +72,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="29dp"
         android:layout_marginTop="592dp"
+        android:onClick="prevChallengeFirstClick"
         android:src="@drawable/ic_baseline_announcement_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +80,8 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
-        android:id="@+id/prev2"
+        android:id="@+id/prevChallangeSecond"
+        android:onClick="prevChallengeSecondClick"
         android:layout_width="113dp"
         android:layout_height="54dp"
         android:layout_alignParentStart="true"
@@ -94,7 +96,7 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
-        android:id="@+id/prev3"
+        android:id="@+id/prevChallangeThird"
         android:layout_width="113dp"
         android:layout_height="54dp"
         android:layout_alignParentStart="true"
@@ -102,6 +104,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="279dp"
         android:layout_marginTop="592dp"
+        android:onClick="prevChallengeThirdClick"
         android:src="@drawable/ic_baseline_announcement_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,50 +125,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="0dp" />
 
-    <Button
-        android:id="@+id/prevChallangeThird"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="149dp"
-        android:onClick="prevChallengeThirdClick"
-        android:text="prev3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/prevChallangeSecond"
-        app:layout_constraintTop_toBottomOf="@+id/meetBtn"
-        app:layout_constraintVertical_bias="0.501" />
-
-    <Button
-        android:id="@+id/prevChallangeSecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="146dp"
-        android:onClick="prevChallengeSecondClick"
-        android:text="prev2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meetBtn" />
-
-    <Button
-        android:id="@+id/prevChallangeFirst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="146dp"
-        android:onClick="prevChallengeFirstClick"
-        android:text="prev1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/prevChallangeSecond"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meetBtn" />
 
     <TextView
         android:id="@+id/textView6"

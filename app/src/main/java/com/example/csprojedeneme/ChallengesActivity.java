@@ -53,13 +53,10 @@ public class ChallengesActivity extends AppCompatActivity {
 
         createBtn = (Button) findViewById(R.id.createBtn);
         meetBtn = (Button) findViewById(R.id.meetBtn);
-        prevChallangeFirst = (Button) findViewById(R.id.prevChallangeFirst);
-        prevChallangeSecond = (Button) findViewById(R.id.prevChallangeSecond);
-        prevChallangeThird = (Button) findViewById(R.id.prevChallangeThird);
 
-        prev1 = (ImageView) findViewById(R.id.prev1);
-        prev2 = (ImageView) findViewById(R.id.prev2);
-        prev3 = (ImageView) findViewById(R.id.prev3);
+        prev1 = (ImageView) findViewById(R.id.prevChallangeFirst);
+        prev2 = (ImageView) findViewById(R.id.prevChallangeSecond);
+        prev3 = (ImageView) findViewById(R.id.prevChallangeThird);
 
         prevText1 = (TextView) findViewById(R.id.prevText1);
         prevText2 = (TextView) findViewById(R.id.prevText2);
