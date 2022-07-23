@@ -13,6 +13,8 @@ public class User {
     private ArrayList<String> friendList;
     private int plansDone;
     private int challengesWon;
+    private int gold;
+    private ArrayList<Item> items;
 
     public User(String username, String password) {
         this.username = username;
@@ -24,6 +26,7 @@ public class User {
         friendList = new ArrayList<>();
         plansDone = 0;
         challengesWon = 0;
+        items = new ArrayList<>();
     }
 
     public User() {
@@ -103,5 +106,24 @@ public class User {
 
     public void setChallengesWon(int challengesWon) {
         this.challengesWon = challengesWon;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+    public void addCollection(Item item){
+        this.getItems().add(item);
     }
 }

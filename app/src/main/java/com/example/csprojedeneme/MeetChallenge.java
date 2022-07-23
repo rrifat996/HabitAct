@@ -42,6 +42,8 @@ public class MeetChallenge extends AppCompatActivity {
 
     private DocumentReference creatorRef;
 
+    private int clickedIdx;
+
     ArrayList<String> tempFriends;
     ArrayList<String> tempFriends2;
 
@@ -62,8 +64,7 @@ public class MeetChallenge extends AppCompatActivity {
     }
     public void searchBtnClick(View v){
         challenges.clear();
-        Toast.makeText(MeetChallenge.this,"before ref",
-                Toast.LENGTH_SHORT).show();
+
         String searchTextStr = searchText.getText().toString();
         splitted = searchTextStr.split(" ");
         MainActivity.challengesRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -72,11 +73,7 @@ public class MeetChallenge extends AppCompatActivity {
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
 
-                    Challenge challenge = documentSnapshot.toObject(Challenge.class);
-                    Toast.makeText(MeetChallenge.this,"ref achieved",
-                            Toast.LENGTH_SHORT).show();
-
-                    addIfMoreThanHalfTitle(challenge);
+                    addIfMoreThanHalfTitle(documentSnapshot.toObject(Challenge.class));
                 }
                 recyclerBuilder();
             }
@@ -95,12 +92,17 @@ public class MeetChallenge extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new ChallengeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+                clickedIdx = position;
+                changeBackGround();
                 lastSelectedId = challenges.get(position).getId();
                 lastSelectedCreatorId = challenges.get(position).getCreatorId();
                 creatorRef = MainActivity.usersRef.document(lastSelectedCreatorId);
-               // addChallenge(challenges.get(position).getId());
+                // addChallenge(challenges.get(position).getId());
             }
         });
+    }
+    public void changeBackGround(){
+
     }
     public void updateUser(String first, String second, String third){
         MainActivity.userRef.update("challange1", first).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -154,16 +156,25 @@ public class MeetChallenge extends AppCompatActivity {
         MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+
                 User user = documentSnapshot.toObject(User.class);
-                String first = user.getChallange1();
-                String second = user.getChallange2();
-                String third = user.getChallange3();
 
-                third = second;
-                second = first;
-                first = id;
+                if(!id.equals(user.getChallange1()) && !id.equals(user.getChallange2()) && !id.equals(user.getChallange3())){
+                    String first = user.getChallange1();
+                    String second = user.getChallange2();
+                    String third = user.getChallange3();
 
-                updateUser(first, second, third);
+                    third = second;
+                    second = first;
+                    first = id;
+
+                    updateUser(first, second, third);
+                }
+                else{
+                    Toast.makeText(MeetChallenge.this,"You already met with this challenge",
+                            Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -174,15 +185,23 @@ public class MeetChallenge extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 User user = documentSnapshot.toObject(User.class);
-                String first = user.getChallange1();
-                String second = user.getChallange2();
-                String third = user.getChallange3();
 
-                third = second;
-                second = first;
-                first = id;
+                if(!id.equals(user.getChallange1()) && !id.equals(user.getChallange2()) && !id.equals(user.getChallange3())){
+                    String first = user.getChallange1();
+                    String second = user.getChallange2();
+                    String third;https://github.cohttps://github.com/rrifat996/cs102projem/rrifat996/cs102proje
 
-                updateUserOther(first, second, third);
+                    third = second;
+                    second = first;
+                    first = id;
+
+                    updateUserOther(first, second, third);
+                }
+                else{
+                    Toast.makeText(MeetChallenge.this,"You already met with this challenge",
+                            Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -204,20 +223,45 @@ public class MeetChallenge extends AppCompatActivity {
 
     }
     public void meetBtn2Click(View v){
-        addChallenge(lastSelectedId);
-        addChallengeToOther(lastSelectedId);
+        if(lastSelectedCreatorId.equals("")){
+            Toast.makeText(MeetChallenge.this,"Select a challenge first!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else if(lastSelectedCreatorId.equals(SaveSharedPreference.getUserId(MeetChallenge.this))){Toast.makeText(MeetChallenge.this,"You cannot meet with your own challenge!",
+                Toast.LENGTH_SHORT).show();
+        }
+        else{
+            addChallenge(lastSelectedId);
+            addChallengeToOther(lastSelectedId);
+        }
     }
     public void addCreatorFriendBtnClick(View v){
+        if(lastSelectedCreatorId.equals(SaveSharedPreference.getUserId(MeetChallenge.this))){
+            Toast.makeText(MeetChallenge.this,"You cannot be friends with yourself!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else{
+            MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    tempFriends = documentSnapshot.toObject(User.class).getFriendList();
+                    boolean isFound = false;
+                    for(String otherId : tempFriends){
+                        if(otherId.equals(lastSelectedCreatorId)){
+                            Toast.makeText(MeetChallenge.this,"You are already friends with this user!",
+                                    Toast.LENGTH_SHORT).show();
 
-        MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                tempFriends = documentSnapshot.toObject(User.class).getFriendList();
-                addFriend();
-                addCreatorFriendBtnClick2(v);
-            }
-        });
-
+                            isFound = true;
+                            break;
+                        }
+                    }
+                    if(!isFound){
+                        addFriend();
+                        addCreatorFriendBtnClick2(v);
+                    }
+                }
+            });
+        }
     }
     public void addCreatorFriendBtnClick2(View v){
         creatorRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

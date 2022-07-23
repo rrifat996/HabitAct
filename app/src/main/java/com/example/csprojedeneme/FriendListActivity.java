@@ -31,8 +31,6 @@ public class FriendListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_friends_list);
 
         createExampleList();
-
-
     }
 
 
@@ -97,11 +95,11 @@ public class FriendListActivity extends AppCompatActivity {
     public void removeFromOther(String lastRemovedId){
         MainActivity.usersRef.document(lastRemovedId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-              //      String docId = documentSnapshot.getId();
-                    lastRemovedsList = documentSnapshot.toObject(User.class).getFriendList();
-                    finalRemove(lastRemovedId, SaveSharedPreference.getUserId(FriendListActivity.this));
-                }
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                //      String docId = documentSnapshot.getId();
+                lastRemovedsList = documentSnapshot.toObject(User.class).getFriendList();
+                finalRemove(lastRemovedId, SaveSharedPreference.getUserId(FriendListActivity.this));
+            }
         });
     }
     public void finalRemove(String idToRemoveFrom, String lastRemovedId){

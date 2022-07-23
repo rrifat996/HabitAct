@@ -1,5 +1,6 @@
 package com.example.csprojedeneme;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter {
     }
 
     public void setOnItemClickListener(OnItemClickListener listener){
-            mListener = listener;
+        mListener = listener;
     }
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
@@ -29,7 +30,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter {
         public TextView mTitle;
         public TextView mDescription;
         public TextView mCreatorName;
-       // private String creatorId;
+        public ImageView mIcon;
 
 
         public ExampleViewHolder(View itemView, OnItemClickListener listener){
@@ -38,6 +39,7 @@ public class ChallengeAdapter extends RecyclerView.Adapter {
             mTitle = itemView.findViewById(R.id.mTitle);
             mDescription = itemView.findViewById(R.id.mDescription);
             mCreatorName = itemView.findViewById(R.id.mCreatorName);
+            mIcon = itemView.findViewById(R.id.mImage);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -70,9 +72,11 @@ public class ChallengeAdapter extends RecyclerView.Adapter {
         Challenge currentChallenge = mChallenges.get(position);
 
         ExampleViewHolder holder1 = (ExampleViewHolder)holder;
+
         holder1.mCreatorName.setText(currentChallenge.getCreatorName());
         holder1.mDescription.setText(currentChallenge.getDescription());
         holder1.mTitle.setText(currentChallenge.getChallengeName());
+        holder1.mIcon.setImageResource(currentChallenge.getmImageResource());
 
     }
 

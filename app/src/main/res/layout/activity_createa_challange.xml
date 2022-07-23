@@ -16,6 +16,62 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/create_challenge" />
 
+    <ImageView
+        android:layout_width="43dp"
+        android:layout_height="41dp"
+        android:layout_above="@+id/description_icon"
+        android:layout_marginEnd="-110dp"
+        android:layout_marginBottom="3dp"
+        android:layout_toStartOf="@+id/textView10"
+        android:onClick="thirdImgClick"
+        android:src="@drawable/ic_baseline_food_bank_24" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="43dp"
+        android:layout_height="41dp"
+        android:layout_above="@+id/description_icon"
+        android:layout_marginEnd="-165dp"
+        android:layout_marginBottom="4dp"
+        android:layout_toStartOf="@+id/textView10"
+        android:onClick="fourthImgClick"
+        android:src="@drawable/ic_baseline_sports_football_24" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="43dp"
+        android:layout_height="41dp"
+        android:layout_above="@+id/description_icon"
+        android:layout_marginEnd="-221dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@+id/textView10"
+        android:onClick="fifthImgClick"
+        android:src="@drawable/ic_baseline_timer_24" />
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="43dp"
+        android:layout_above="@+id/description_icon"
+        android:layout_marginEnd="-55dp"
+        android:layout_marginBottom="1dp"
+        android:layout_toStartOf="@+id/textView10"
+        android:onClick="secondImgClick"
+        android:src="@drawable/ic_baseline_date_range_24" />
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="52dp"
+        android:layout_above="@+id/description_icon"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="211dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="3dp"
+        android:layout_toStartOf="@+id/textView10"
+        android:src="@drawable/ic_baseline_accessibility_24"
+        android:onClick="firstImgClick"
+        />
+
     <EditText
         android:id="@+id/challengeName"
         android:layout_width="304dp"
@@ -29,6 +85,7 @@
         android:layout_marginEnd="142dp"
         android:hint="Enter title"
         android:inputType="text" />
+
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -71,13 +128,23 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="383dp"
-        android:layout_marginEnd="139dp"
-        android:layout_marginBottom="321dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="307dp"
         android:hint="Describe the activity or \nspecify the task"
         android:inputType="text"
         android:lines="2"
         android:paddingBottom="1dp"
         android:scaleType="fitStart" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/description_icon"
+        android:layout_alignEnd="@+id/challengeName"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="47dp"
+        android:text="Select an Icon" />
 
 
 </RelativeLayout>

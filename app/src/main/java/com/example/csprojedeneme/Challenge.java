@@ -9,6 +9,7 @@ public class Challenge {
     private int creatorProgress;
     private int meeterProgress;
     private boolean isActive;
+    private int mImageResource;
 
     public Challenge(String challengeName, String creatorId, String description) {
         this.challengeName = challengeName;
@@ -17,7 +18,7 @@ public class Challenge {
         this.isActive = true;
         this.creatorProgress = 0;
         this.meeterProgress = 0;
- //       this.creatorName = creatorName;
+        //       this.creatorName = creatorName;
     }
 
     public Challenge(){}
@@ -86,5 +87,12 @@ public class Challenge {
         this.meeterProgress = meeterProgress;
     }
 
+    public int getmImageResource() {
+        return mImageResource;
+    }
+
+    public void setmImageResource(int mImageResource) {
+        this.mImageResource = mImageResource;
+    }
 }
 

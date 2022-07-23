@@ -21,6 +21,7 @@ public class CreateChallenge extends AppCompatActivity {
     private String docId;
     private DocumentReference docRef;
     private String userName;
+    private int imageResource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class CreateChallenge extends AppCompatActivity {
             }
         });
         challenge.setCreatorName(userName);
+        challenge.setmImageResource(imageResource);
         MainActivity.challengesRef.add(challenge).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {  // maybe get id later (meet)
@@ -69,6 +71,22 @@ public class CreateChallenge extends AppCompatActivity {
     public void setCreator(){
         docRef.update("creatorName", userName);
     }
+    public void firstImgClick(View v){
+        imageResource = R.drawable.ic_baseline_accessibility_24;
+    }
+    public void secondImgClick(View v){
+        imageResource = R.drawable.ic_baseline_date_range_24;
+    }
+    public void thirdImgClick(View v){
+        imageResource = R.drawable.ic_baseline_food_bank_24;
+    }
+    public void fourthImgClick(View v){
+        imageResource = R.drawable.ic_baseline_sports_football_24;
+    }
+    public void fifthImgClick(View v){
+        imageResource = R.drawable.ic_baseline_timer_24;
+    }
+
 }
 /*
 * User user = MainActivity.userRef.toObject(User.class);

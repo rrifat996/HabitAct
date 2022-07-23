@@ -30,7 +30,7 @@ public class GlobalRankingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_global_ranking);
 
-       // createExampleList();
+        // createExampleList();
         //buildRecyclerView();
         loadUsers();
 

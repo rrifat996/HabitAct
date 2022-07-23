@@ -1,10 +1,8 @@
 package com.example.csprojedeneme;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,19 +20,19 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_acitivity);
-        //welcomeText = (TextView) findViewById(R.id.welcomeText);
+
         storeButton = (Button)findViewById(R.id.storeButton);
         weeklyPlanButton = (Button)findViewById(R.id.weeklyPlanButton);
         challengesButton = (Button)findViewById(R.id.challengesButton);
         statisticsButton = (Button)findViewById(R.id.statisticsButton);
         settingsButton = (Button)findViewById(R.id.settingsButton);
+
         MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Toast.makeText(HomePageActivity.this,"got name",
                         Toast.LENGTH_SHORT).show();
 
-    //            welcomeText.setText("Welcome, " + documentSnapshot.toObject(User.class).getRealName());
             }
         });
 
@@ -43,7 +41,6 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, StoreActivity.class);
         startActivity(intent);
     }
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public void weeklyPlanMenu(View v){
         Intent intent = new Intent(this, WeekViewActivity.class);
         startActivity(intent);

@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static FirebaseFirestore db = FirebaseFirestore.getInstance();
     public static CollectionReference challengesRef = db.collection("challenges");
+    public static CollectionReference itemsRef = db.collection("items");
     public static CollectionReference usersRef = db.collection("users");
     public static DocumentReference userRef;
 
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
-        });
+                });
 
     }
 
