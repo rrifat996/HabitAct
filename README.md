@@ -5,6 +5,7 @@ CS 102 PROJECT
 ✨
 
 Features
+
 A self imporvement personal habit traction application with customizable character
 Interact with other users online
 Create and send others your challenges
