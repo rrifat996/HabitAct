@@ -26,9 +26,11 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
 
     private ImageView item1, item2, item3, item4, item5, item6;
     private Item storeItem1, storeItem2, storeItem3, storeItem4, storeItem5, storeItem6;
+    private Item[] list = {storeItem1, storeItem2, storeItem3, storeItem4, storeItem5, storeItem6};
 
     private int userGold;
     private int count = 0;
+
     //User user = new User("te","te");
 
     @Override
@@ -71,22 +73,22 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
                 User user = documentSnapshot.toObject(User.class);
                 switch (view.getId()){
                     case R.id.marketItem1:
-                        buy(user, storeItem1);
+                        buy(user, list[1]);
                         break;
                     case R.id.marketItem2:
-                        buy(user, storeItem2);
+                        buy(user, list[2]);
                         break;
                     case R.id.marketItem3:
-                        buy(user, storeItem3);
+                        buy(user, list[3]);
                         break;
                     case R.id.marketItem4:
-                        buy(user, storeItem4);
+                        buy(user, list[4]);
                         break;
                     case R.id.marketItem5:
-                        buy(user, storeItem5);
+                        buy(user, list[5]);
                         break;
                     case R.id.marketItem6:
-                        buy(user, storeItem6);
+                        buy(user, list[6]);
                         break;
                 }
             }
@@ -109,13 +111,14 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                    Item item = documentSnapshot.toObject(Item.class);
-                    randomItems.add(item);
-                    drawItem(randomItems.get(count).getId(), imageViews.get(count));
-                    count++;
                     if(count == 6){
                         break;
                     }
+                    Item item = documentSnapshot.toObject(Item.class);
+                    list[count] = new Item(item.getId(), item.getCost());
+                    randomItems.add(item);
+                    drawItem(randomItems.get(count).getId(), imageViews.get(count));
+                    count++;
                 }
                 for (int i = 0; i < randomItems.size(); i++){
                     drawItem(randomItems.get(i).getId(), imageViews.get(i));
@@ -170,6 +173,9 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
                             Toast.LENGTH_SHORT).show();
                 }
             });
+        }
+        else{
+            Toast.makeText(StoreActivity.this, "not enough gold", Toast.LENGTH_SHORT).show();
         }
 
     }

@@ -9,6 +9,7 @@
     android:padding="16dp"
     tools:context=".HomePageActivity">
 
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/storeButton"
         android:layout_width="match_parent"
@@ -58,14 +59,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="396dp"
-        android:layout_marginEnd="97dp"
+        android:layout_marginTop="305dp"
         android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
         android:background="@color/teal_200"
+        android:textSize="20dp"
         android:onClick="statisticsMenu"
-        android:text="Statistics"
-        android:textSize="20dp" />
+        android:text="Statistics" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/settingsButton"
@@ -73,14 +73,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="469dp"
-        android:layout_marginEnd="101dp"
+        android:layout_marginTop="365dp"
         android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
         android:background="@color/settings_button_color"
+        android:textSize="20dp"
         android:onClick="settingsMenu"
-        android:text="settings"
-        android:textSize="20dp" />
+        android:text="settings" />
 
     <TextView
         android:id="@+id/textView5"
@@ -95,15 +94,36 @@
         android:textSize="65dp"
         android:textStyle="bold" />
 
+
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="217dp"
-        android:layout_height="383dp"
+        android:id="@+id/imageView3"
+        android:layout_width="168dp"
+        android:layout_height="267dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="21dp"
+        app:srcCompat="@drawable/fox_avatar" />
+
+    <ImageView
+        android:id="@+id/topItem"
+        android:layout_width="168dp"
+        android:layout_height="267dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="59dp"
-        android:layout_marginBottom="-91dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginBottom="17dp"
+        app:srcCompat="@drawable/fox_home" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="168dp"
+        android:layout_height="267dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="128dp"
+        android:layout_marginBottom="17dp"
         app:srcCompat="@drawable/fox_home" />
 
 </RelativeLayout>
