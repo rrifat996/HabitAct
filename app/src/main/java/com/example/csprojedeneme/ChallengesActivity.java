@@ -72,29 +72,26 @@ public class ChallengesActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 User user = documentSnapshot.toObject(User.class);
-                if(user.getChallange1().equals("")){
-                    isActiveFirst = false;
+                if(user != null) {
+                    if (user.getChallange1().equals("")) {
+                        isActiveFirst = false;
+                    } else {
+                        isActiveFirst = true;
+                        updateVariables1(user.getChallange1());
+                    }
+                    if (user.getChallange2().equals("")) {
+                        isActiveSecond = false;
+                    } else {
+                        isActiveSecond = true;
+                        updateVariables2(user.getChallange2());
+                    }
+                    if (user.getChallange3().equals("")) {
+                        isActiveThird = false;
+                    } else {
+                        isActiveThird = true;
+                        updateVariables3(user.getChallange3());
+                    }
                 }
-                else{
-                    isActiveFirst = true;
-                    updateVariables1(user.getChallange1());
-                }
-                if(user.getChallange2().equals("")){
-                    isActiveSecond = false;
-                }
-                else{
-                    isActiveSecond = true;
-                    updateVariables2(user.getChallange2());
-                }
-                if(user.getChallange3().equals("")){
-                    isActiveThird = false;
-                }
-                else{
-                    isActiveThird = true;
-                    updateVariables3(user.getChallange3());
-                }
-
-
             }
         });
     }
