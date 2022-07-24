@@ -12,14 +12,15 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/storeButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="296dp"
+        android:layout_height="352dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-66dp"
         android:layout_marginLeft="65dp"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="36dp"
         android:layout_marginRight="65dp"
-        android:background="@color/store_button_color"
+        android:background="@drawable/store"
         android:onClick="storeMenu"
         android:text="Store"
         android:textSize="20dp" />
@@ -103,27 +104,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="21dp"
         app:srcCompat="@drawable/fox_avatar" />
-
-    <ImageView
-        android:id="@+id/topItem"
-        android:layout_width="168dp"
-        android:layout_height="267dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="128dp"
-        android:layout_marginBottom="17dp"
-        app:srcCompat="@drawable/fox_home" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="168dp"
-        android:layout_height="267dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="128dp"
-        android:layout_marginBottom="17dp"
-        app:srcCompat="@drawable/fox_home" />
 
 </RelativeLayout>
