@@ -44,8 +44,8 @@ public class MeetChallenge extends AppCompatActivity {
 
     private int clickedIdx;
 
-    ArrayList<String> tempFriends;
-    ArrayList<String> tempFriends2;
+    private ArrayList<String> tempFriends;
+    private ArrayList<String> tempFriends2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -211,9 +211,9 @@ public class MeetChallenge extends AppCompatActivity {
     public void addIfMoreThanHalfTitle(Challenge challenge){
         String[] secondSplit = challenge.getChallengeName().split(" ");
         int count = 0;
-        for(String searchItem : secondSplit){
+        for(String searchItem : splitted){
             count = 0;
-            for(String challengeItem : splitted){
+            for(String challengeItem : secondSplit){
                 if(searchItem.equalsIgnoreCase(challengeItem)){
                     count++;
                 }

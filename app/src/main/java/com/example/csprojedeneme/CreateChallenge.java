@@ -3,10 +3,12 @@ package com.example.csprojedeneme;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,15 +24,38 @@ public class CreateChallenge extends AppCompatActivity {
     private DocumentReference docRef;
     private String userName;
     private int imageResource;
+    private ImageView imageImgResource;
+
+    private ImageView firstImageView;
+    private ImageView secondImageView;
+    private ImageView thirdImageView;
+    private ImageView fourthImageView;
+    private ImageView fifthImageView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createa_challange);
 
         createBtn2 = (Button) findViewById(R.id.createBtn2);
         challengeName = (EditText)findViewById(R.id.challengeName);
         description = (EditText)findViewById(R.id.description);
+
+        firstImageView = (ImageView) findViewById(R.id.first);
+        secondImageView = (ImageView) findViewById(R.id.second);
+        thirdImageView = (ImageView) findViewById(R.id.third);
+        fourthImageView = (ImageView) findViewById(R.id.fourth);
+        fifthImageView = (ImageView) findViewById(R.id.fifth);
+
+        imageResource = 1;
+
+        imageImgResource = firstImageView;
+        firstImageView.setBackgroundResource(R.drawable.image_view_border);
+
     }
     public void getBack(){
         Intent intent = new Intent(this, ChallengesActivity.class);
@@ -72,19 +97,34 @@ public class CreateChallenge extends AppCompatActivity {
         docRef.update("creatorName", userName);
     }
     public void firstImgClick(View v){
+        imageImgResource.setBackgroundResource(R.drawable.image_view_border_zero);
+        imageImgResource = firstImageView;
         imageResource = R.drawable.ic_baseline_accessibility_24;
+        firstImageView.setBackgroundResource(R.drawable.image_view_border);
     }
     public void secondImgClick(View v){
+        imageImgResource.setBackgroundResource(R.drawable.image_view_border_zero);
+        imageImgResource = secondImageView;
         imageResource = R.drawable.ic_baseline_date_range_24;
+        secondImageView.setBackgroundResource(R.drawable.image_view_border);
     }
     public void thirdImgClick(View v){
+        imageImgResource.setBackgroundResource(R.drawable.image_view_border_zero);
+        imageImgResource = thirdImageView;
         imageResource = R.drawable.ic_baseline_food_bank_24;
+        thirdImageView.setBackgroundResource(R.drawable.image_view_border);
     }
     public void fourthImgClick(View v){
+        imageImgResource.setBackgroundResource(R.drawable.image_view_border_zero);
+        imageImgResource = fourthImageView;
         imageResource = R.drawable.ic_baseline_sports_football_24;
+        fourthImageView.setBackgroundResource(R.drawable.image_view_border);
     }
     public void fifthImgClick(View v){
+        imageImgResource.setBackgroundResource(R.drawable.image_view_border_zero);
+        imageImgResource = fifthImageView;
         imageResource = R.drawable.ic_baseline_timer_24;
+        fifthImageView.setBackgroundResource(R.drawable.image_view_border);
     }
 
 }

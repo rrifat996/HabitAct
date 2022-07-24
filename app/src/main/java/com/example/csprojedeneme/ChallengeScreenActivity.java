@@ -30,7 +30,7 @@ public class ChallengeScreenActivity extends AppCompatActivity {
     private DocumentReference currentChallengeRef;
     private int prevCountFromDatabase;
     private int prevXpFromDatabase;
-
+    private int prevGoldFromDataBase;
 
 
     @Override
@@ -80,8 +80,9 @@ public class ChallengeScreenActivity extends AppCompatActivity {
                     if(currentChallengeId.equals(documentSnapshot.getId())){
                         creatorId = documentSnapshot.toObject(Challenge.class).getCreatorId();
                         currentChallenge = documentSnapshot;
+                        challengeDescription.setText(documentSnapshot.toObject(Challenge.class).getDescription());
                         challengeTitle.setText(documentSnapshot.toObject(Challenge.class).getChallengeName());
-                        challengeTitle.setText(documentSnapshot.toObject(Challenge.class).getDescription());
+                        challengeDescription.setText(documentSnapshot.toObject(Challenge.class).getDescription());
                         break;
                     }
                 }
@@ -145,6 +146,7 @@ public class ChallengeScreenActivity extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 User user = documentSnapshot.toObject(User.class);
                 prevCountFromDatabase = user.getChallengesWon();
+                prevGoldFromDataBase = user.getGold();
                 prevXpFromDatabase = user.getXp();
                 updateUser();
             }
@@ -153,7 +155,7 @@ public class ChallengeScreenActivity extends AppCompatActivity {
 
 
     public void updateUser(){
-
+        MainActivity.userRef.update("gold", prevGoldFromDataBase + 10);
         MainActivity.userRef.update("challengesWon", prevCountFromDatabase + 1);
         MainActivity.userRef.update("xp", prevXpFromDatabase + 10);
 

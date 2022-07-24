@@ -24,7 +24,6 @@ public class GlobalRankingAdapter extends RecyclerView.Adapter<GlobalRankingAdap
         public ExampleViewHolder(View itemView){
             super(itemView);
 
-            plansDone = itemView.findViewById(R.id.globalPlansCompleted2);
             username = itemView.findViewById(R.id.globalUsername2);
             challengesWon = itemView.findViewById(R.id.globalChalllengesCompleted2);
             xp = itemView.findViewById(R.id.globalXp2);
@@ -48,8 +47,6 @@ public class GlobalRankingAdapter extends RecyclerView.Adapter<GlobalRankingAdap
     public void onBindViewHolder(GlobalRankingAdapter.ExampleViewHolder holder, int position) {
         RankingUserItem currentItem = mUsers.get(position);
 
-
-        holder.plansDone.setText("" +currentItem.getPlansDone());
         holder.challengesWon.setText("" +currentItem.getChallengesWon());
         holder.username.setText(currentItem.getUsername());
         holder.xp.setText("" +currentItem.getXp());

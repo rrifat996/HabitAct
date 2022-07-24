@@ -33,9 +33,9 @@ public class FriendsItemAdapter extends RecyclerView.Adapter<FriendsItemAdapter.
 
         public ExampleViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
-            plansDone = itemView.findViewById(R.id.globalPlansCompleted);
+
             username = itemView.findViewById(R.id.globalUsername);
-            challengesWon = itemView.findViewById(R.id.globalChalllengesCompleted);
+            challengesWon = itemView.findViewById(R.id.challengesWon);
             xp = itemView.findViewById(R.id.globalXp);
             mDeleteImage = itemView.findViewById(R.id.image_delete);
 

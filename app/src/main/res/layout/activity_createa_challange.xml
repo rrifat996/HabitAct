@@ -8,6 +8,8 @@
     android:padding="16dp"
     tools:context=".CreateChallenge">
 
+
+
     <ImageView
         android:layout_width="299dp"
         android:layout_height="47dp"
@@ -17,6 +19,7 @@
         android:src="@drawable/create_challenge" />
 
     <ImageView
+        android:id="@+id/third"
         android:layout_width="43dp"
         android:layout_height="41dp"
         android:layout_above="@+id/description_icon"
@@ -27,7 +30,7 @@
         android:src="@drawable/ic_baseline_food_bank_24" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/fourth"
         android:layout_width="43dp"
         android:layout_height="41dp"
         android:layout_above="@+id/description_icon"
@@ -38,7 +41,7 @@
         android:src="@drawable/ic_baseline_sports_football_24" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/fifth"
         android:layout_width="43dp"
         android:layout_height="41dp"
         android:layout_above="@+id/description_icon"
@@ -50,6 +53,7 @@
 
 
     <ImageView
+        android:id="@+id/second"
         android:layout_width="50dp"
         android:layout_height="43dp"
         android:layout_above="@+id/description_icon"
@@ -60,6 +64,7 @@
         android:src="@drawable/ic_baseline_date_range_24" />
 
     <ImageView
+        android:id="@+id/first"
         android:layout_width="48dp"
         android:layout_height="52dp"
         android:layout_above="@+id/description_icon"
@@ -68,9 +73,8 @@
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="3dp"
         android:layout_toStartOf="@+id/textView10"
-        android:src="@drawable/ic_baseline_accessibility_24"
         android:onClick="firstImgClick"
-        />
+        android:src="@drawable/ic_baseline_accessibility_24" />
 
     <EditText
         android:id="@+id/challengeName"
