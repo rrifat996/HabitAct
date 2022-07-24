@@ -82,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                         if(userFound){
-                            Toast.makeText(MainActivity.this,"buldum accountu",
+                            Toast.makeText(MainActivity.this,"Account Found",
                                     Toast.LENGTH_SHORT).show();
                             logged();
                         }
                         else{
-                            Toast.makeText(MainActivity.this,"account bulunamadı",
+                            Toast.makeText(MainActivity.this,"Account not Faound! ",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
