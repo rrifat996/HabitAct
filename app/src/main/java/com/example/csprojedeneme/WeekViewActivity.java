@@ -19,9 +19,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class WeekViewActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
     private TextView monthYearText;
@@ -35,14 +41,31 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         CalendarUtils.selectedDate = LocalDate.now();
         initWidgets();
         setWeekView();
-        checkFromDatabase();
+        if(Event.counter ==0){
+            checkFromDatabase();
+            Event.counter++;
+        }
     }
+
     private void checkFromDatabase() {
-        SharedPreferences sp = (SharedPreferences) getApplicationContext().getSharedPreferences("MyEventPrefs", Context.MODE_PRIVATE);
-        String name = sp.getString("name" , "");
-        String date = sp.getString("date", "");
-        String time = sp.getString("time","");
-        Event.eventsList.add(new Event(name,LocalDate.parse(date), LocalTime.parse(time)));
+        File path = getApplicationContext().getFilesDir();
+        File readFrom = new File(path, "events.txt");
+        try {
+            Scanner inFile = new Scanner(readFrom);
+            while(inFile.hasNext()){
+                String line = inFile.nextLine();
+                String [] linesplit = new String[3];
+                linesplit = line.split(";");
+                String eventName = linesplit[0];
+                LocalDate eventDate = LocalDate.parse(linesplit[1]);
+                LocalTime eventTime = LocalTime.parse(linesplit[2]);
+                Event temp = new Event(eventName, eventDate, eventTime);
+                if(!Event.eventsList.contains(temp))
+                    Event.eventsList.add(temp);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initWidgets()
