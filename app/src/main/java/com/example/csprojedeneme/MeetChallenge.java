@@ -72,7 +72,8 @@ public class MeetChallenge extends AppCompatActivity {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                    if(documentSnapshot.toObject(Challenge.class).isActive()){
+                    Challenge ch = documentSnapshot.toObject(Challenge.class);
+                    if(ch.isMeeted()){
                         addIfMoreThanHalfTitle(documentSnapshot.toObject(Challenge.class));
                     }
                 }
@@ -232,8 +233,14 @@ public class MeetChallenge extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
         }
         else{
-            addChallenge(lastSelectedId);
-            addChallengeToOther(lastSelectedId);
+            MainActivity.challengesRef.document(lastSelectedId).update("meeted", false).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    addChallenge(lastSelectedId);
+                    addChallengeToOther(lastSelectedId);
+                }
+            });
+
         }
     }
     public void addCreatorFriendBtnClick(View v){

@@ -8,14 +8,16 @@ public class Challenge {
     private String id;
     private int creatorProgress;
     private int meeterProgress;
-    private boolean isActive;
+    private boolean meeted;
+    private boolean completed;
     private int mImageResource;
 
     public Challenge(String challengeName, String creatorId, String description) {
         this.challengeName = challengeName;
         this.creatorId = creatorId;
         this.description = description;
-        this.isActive = true;
+        this.meeted = true;
+        this.completed = false;
         this.creatorProgress = 0;
         this.meeterProgress = 0;
         //       this.creatorName = creatorName;
@@ -47,13 +49,6 @@ public class Challenge {
         this.description = description;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
 
     public String getCreatorName() {
         return creatorName;
@@ -93,6 +88,22 @@ public class Challenge {
 
     public void setmImageResource(int mImageResource) {
         this.mImageResource = mImageResource;
+    }
+
+    public boolean isMeeted() {
+        return meeted;
+    }
+
+    public void setMeeted(boolean meeted) {
+        this.meeted = meeted;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }
 

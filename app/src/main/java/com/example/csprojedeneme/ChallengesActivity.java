@@ -18,9 +18,6 @@ public class ChallengesActivity extends AppCompatActivity {
 
     private Button createBtn;
     private Button meetBtn;
-    private Button prevChallangeFirst;
-    private Button prevChallangeSecond;
-    private Button prevChallangeThird;
 
     private TextView prevText1;
     private TextView prevText2;
