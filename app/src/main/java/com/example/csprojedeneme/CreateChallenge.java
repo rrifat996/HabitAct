@@ -51,7 +51,7 @@ public class CreateChallenge extends AppCompatActivity {
         fourthImageView = (ImageView) findViewById(R.id.fourth);
         fifthImageView = (ImageView) findViewById(R.id.fifth);
 
-        imageResource = 1;
+        imageResource = R.drawable.ic_baseline_accessibility_24;
 
         imageImgResource = firstImageView;
         firstImageView.setBackgroundResource(R.drawable.image_view_border);

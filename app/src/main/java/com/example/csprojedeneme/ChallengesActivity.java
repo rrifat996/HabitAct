@@ -68,32 +68,35 @@ public class ChallengesActivity extends AppCompatActivity {
     }
 
     public void updateScreen(){
-        MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                User user = documentSnapshot.toObject(User.class);
-                if(user != null) {
-                    if (user.getChallange1().equals("")) {
-                        isActiveFirst = false;
-                    } else {
-                        isActiveFirst = true;
-                        updateVariables1(user.getChallange1());
-                    }
-                    if (user.getChallange2().equals("")) {
-                        isActiveSecond = false;
-                    } else {
-                        isActiveSecond = true;
-                        updateVariables2(user.getChallange2());
-                    }
-                    if (user.getChallange3().equals("")) {
-                        isActiveThird = false;
-                    } else {
-                        isActiveThird = true;
-                        updateVariables3(user.getChallange3());
+
+        if(MainActivity.userRef != null){
+            MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    User user = documentSnapshot.toObject(User.class);
+                    if (user != null) {
+                        if (user.getChallange1().equals("")) {
+                            isActiveFirst = false;
+                        } else {
+                            isActiveFirst = true;
+                            updateVariables1(user.getChallange1());
+                        }
+                        if (user.getChallange2().equals("")) {
+                            isActiveSecond = false;
+                        } else {
+                            isActiveSecond = true;
+                            updateVariables2(user.getChallange2());
+                        }
+                        if (user.getChallange3().equals("")) {
+                            isActiveThird = false;
+                        } else {
+                            isActiveThird = true;
+                            updateVariables3(user.getChallange3());
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     }
     public void updateVariables1(String chId){
          MainActivity.challengesRef.document(chId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
