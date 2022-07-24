@@ -12,6 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.LocalTime;
 
 public class EventEditActivity extends AppCompatActivity {
@@ -19,7 +23,7 @@ public class EventEditActivity extends AppCompatActivity {
     private EditText eventNameET;
     private TextView eventDateTV, eventTimeTV;
     private LocalTime time;
-    SharedPreferences sp ;
+    String content= "";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -30,7 +34,6 @@ public class EventEditActivity extends AppCompatActivity {
         time = LocalTime.now();
         eventDateTV.setText("Date : " + CalendarUtils.formattedDate(CalendarUtils.selectedDate));
         eventTimeTV.setText("Time : " + CalendarUtils.formattedTime(time));
-        sp = getSharedPreferences("MyEventPrefs", Context.MODE_PRIVATE);
 
 
     }
@@ -47,13 +50,30 @@ public class EventEditActivity extends AppCompatActivity {
         Event newEvent = new Event(eventName, CalendarUtils.selectedDate, time);
         Event.eventsList.add(newEvent);
 
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putString("name",eventName);
-        editor.putString("date",CalendarUtils.selectedDate.toString());
-        editor.putString("time",time.toString());
-        editor.apply();
-        Toast.makeText(EventEditActivity.this,"Event added", Toast.LENGTH_SHORT).show();
-
+        File path  = getApplicationContext().getFilesDir();
+        FileOutputStream writer = null;
+        try {
+            writer = new FileOutputStream(new File(path, "events.txt"),true);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        for(int i=Event.eventsList.size(); i < Event.eventsList.size()+1;i++){
+            Event add = Event.eventsList.get(i-1);
+            String addName = add.getName();
+            String addDate = add.getDate().toString();
+            String addTime = add.getTime().toString();
+            content += addName +";";
+            content += addDate +";";
+            content += addTime +"\n";
+            try {
+                writer.write(content.getBytes());
+                Toast.makeText(EventEditActivity.this,"Event added", Toast.LENGTH_SHORT).show();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         finish();
     }
 }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+import androidx.annotation.Nullable;
 public class Event {
 
     public static ArrayList<Event> eventsList = new ArrayList<>();
@@ -11,6 +12,8 @@ public class Event {
     private String name;
     private LocalDate date;
     private LocalTime time;
+    public static int counter = 0;
+
 
 
     public Event(String name, LocalDate date, LocalTime time) {
@@ -18,6 +21,12 @@ public class Event {
         this.date = date;
         this.time = time;
     }
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        Event ref = (Event) obj;
+        return this.getName().equals(ref.getName());
+    }
+
 
     public static ArrayList<Event> eventsForDate(LocalDate date){
         ArrayList<Event> events = new ArrayList<>();
