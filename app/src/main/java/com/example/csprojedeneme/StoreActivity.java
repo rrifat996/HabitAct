@@ -6,14 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -31,7 +28,6 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
     private int userGold;
     private int count = 0;
 
-    //User user = new User("te","te");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +47,6 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
         item4.setOnClickListener((View.OnClickListener) this);
         item5.setOnClickListener((View.OnClickListener) this);
         item6.setOnClickListener((View.OnClickListener) this);
-        //dayPassed();
         placeItems();
 
     }
@@ -93,8 +88,6 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
         });
-
-
     }
 
     public void placeItems(){
@@ -125,13 +118,6 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
         });
-
-        /*String[] linkList = {"https://firebasestorage.googleapis.com/v0/b/cs-proje-deneme.appspot.com/o/itemsImage%2Fyellow%20shirt.png?alt=media&token=4d571083-a394-4ae5-bef0-bd3c020d7723"};
-        for (int i = 0; i < 2; i++) {
-            omermethod(linkList[0], 200, "Dress");
-        }*/
-
-
 
     }
 
@@ -172,36 +158,18 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
             MainActivity.itemRef.update("category", item.getCategory()).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
-                    Toast.makeText(StoreActivity.this,"purchased",
+                    Toast.makeText(StoreActivity.this,"Purchased",
                             Toast.LENGTH_SHORT).show();
                 }
             });
         }
         else{
-            Toast.makeText(StoreActivity.this, "not enough gold", Toast.LENGTH_SHORT).show();
+            Toast.makeText(StoreActivity.this, "Not Enough Gold", Toast.LENGTH_SHORT).show();
         }
-
     }
 
-    public ArrayList<String> randomChooser(){
-        ArrayList<String> itemList = new ArrayList<>();
-        //itemList.add(Math.random() * (databaseItemList + 1));
-        itemList.add("https://firebasestorage.googleapis.com/v0/b/quiz-app-2acee.appspot.com/o/fox.png?alt=media&token=1ba4b54a-3d2f-4ea6-8e70-0e8880469c2c");
-        itemList.add("https://tr.depositphotos.com/vector-images/imagenes-en-png.html");
-        itemList.add("https://www.pngwing.com/tr");
-        itemList.add("https://tr.depositphotos.com/vector-images/imagenes-en-png.html");
-        itemList.add("https://www.pngwing.com/tr");
-        itemList.add("https://tr.depositphotos.com/vector-images/imagenes-en-png.html");
-        return  itemList;
-    }
-    public void omermethod(String id, int cost, String category){
-        Item item = new Item(id, cost, category);
-        MainActivity.itemsRef.add(item).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Toast.makeText(StoreActivity.this,"item added",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+    public void onBackPressed() {
+        Intent intent = new Intent(this, HomePageActivity.class);
+        startActivity(intent);
     }
 }
