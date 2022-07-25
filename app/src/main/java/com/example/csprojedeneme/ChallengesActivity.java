@@ -186,5 +186,9 @@ public class ChallengesActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+    public void onBackPressed() {
+        Intent intent = new Intent(this, HomePageActivity.class);
+        startActivity(intent);
+    }
 
 }

@@ -8,10 +8,10 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/friendsRankingBtn"
-        android:layout_width="412dp"
-        android:layout_height="365dp"
+        android:layout_width="540dp"
+        android:layout_height="482dp"
         android:background="@drawable/custom_button2"
-        android:layout_marginTop="365dp"
+        android:layout_marginTop="475dp"
         android:onClick="friendsRankingClick"
         android:text="Global Ranking"
         android:fontFamily="casual"
@@ -20,14 +20,14 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/globalRankingBtn"
-        android:layout_width="412dp"
-        android:layout_height="365dp"
-        android:textSize="45dp"
-        android:fontFamily="casual"
-        android:textStyle="bold"
+        android:layout_width="540dp"
+        android:layout_height="475dp"
         android:background="@drawable/custom_button3"
+        android:fontFamily="casual"
         android:onClick="globalRankingClick"
-        android:text="YOUR Friends"/>
+        android:text="YOUR Friends"
+        android:textSize="45dp"
+        android:textStyle="bold" />
 
 
 

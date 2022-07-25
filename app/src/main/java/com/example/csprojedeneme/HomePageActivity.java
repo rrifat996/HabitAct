@@ -29,14 +29,17 @@ public class HomePageActivity extends AppCompatActivity {
         statisticsButton = (Button)findViewById(R.id.statisticsButton);
         settingsButton = (Button)findViewById(R.id.settingsButton);
 
-        MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Toast.makeText(HomePageActivity.this,"got name",
-                        Toast.LENGTH_SHORT).show();
-
-            }
-        });
+        if(Event.trigger == 0){
+            MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    String str = "Welcome Back " + documentSnapshot.toObject(User.class).getRealName();
+                    Toast.makeText(HomePageActivity.this, str,
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+            Event.trigger++;
+        }
 
     }
     public void storeMenu(View v){

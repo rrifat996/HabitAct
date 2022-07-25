@@ -129,38 +129,9 @@ public class CreateChallenge extends AppCompatActivity {
         fifthImageView.setBackgroundResource(R.drawable.image_view_border);
     }
 
-}
-/*
-* User user = MainActivity.userRef.toObject(User.class);
-                        String[] temp = user.getLastChallengesIds();
-                        temp[1] = temp[0];
-                        temp[2] = temp[1];
-                        temp[0] = documentSnapshot1.getId();*/
-/*
-* MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Toast.makeText(HomePageAcitivity.this,"got name",
-                        Toast.LENGTH_SHORT).show();
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ChallengesActivity.class);
+        startActivity(intent);
+    }
 
-                welcomeText.setText("Welcome, " + documentSnapshot.toObject(User.class).getRealName());
-            }
-        });*/
-/*
-*                           MainActivity.usersRef.get()
-                                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                                            @Override
-                                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                                                for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                                                    User user = documentSnapshot.toObject(User.class);
-                                                    String username = user.getUsername();
-                                                    if(user.getUsername().equals(typedUsername)){
-                                                        SaveSharedPreference.setUserId(MainActivity3.this, documentSnapshot.getId());
-                                                        MainActivity.userRef = MainActivity.usersRef.document(SaveSharedPreference.getUserId(MainActivity3.this));
-                                                        break;
-                                                    }
-                                                }
-                                            }
-                                         });
-*
-* */
+}

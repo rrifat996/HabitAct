@@ -2,6 +2,7 @@ package com.example.csprojedeneme;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,8 @@ public class SignUpActivity extends AppCompatActivity{
         editTextUsername2 = (EditText)findViewById(R.id.editTextUsername2);
         editTextPassword2 = (EditText)findViewById(R.id.editTextPassword2);
         editTextPassword3 = (EditText)findViewById(R.id.editTextPassword3);
+        editTextPassword2.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        editTextPassword3.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
         btnSignup2 = (Button)findViewById(R.id.btnSignup2);
 

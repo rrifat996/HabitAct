@@ -13,6 +13,7 @@ public class Event {
     private LocalDate date;
     private LocalTime time;
     public static int counter = 0;
+    public static int trigger = 0;
 
 
 

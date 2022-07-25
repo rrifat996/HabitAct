@@ -47,6 +47,7 @@
         android:background="@drawable/text_back"
         android:hint="Password"
         android:inputType="text"
+        android:password="true"
         android:minHeight="48dp"
         android:paddingLeft="5dp"
         android:paddingTop="8dp"
@@ -84,25 +85,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="116dp"
+        android:layout_marginStart="165dp"
         android:layout_marginTop="470dp"
         android:layout_marginBottom="379dp"
         android:text="Don't have an account ?"
         android:textColor="@color/black" />
-
-    <Button
-        android:id="@+id/forgot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="560dp"
-        android:background="@android:color/transparent"
-        android:text="Forgot your password ?"
-        android:textSize="12dp" />
-
 
 
 </RelativeLayout>
