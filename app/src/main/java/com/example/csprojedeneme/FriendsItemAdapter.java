@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 public class FriendsItemAdapter extends RecyclerView.Adapter<FriendsItemAdapter.ExampleViewHolder> {
-    private ArrayList<FriendListUserItem> mExampleList;
+    private ArrayList<UserListingItem> mExampleList;
     private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
@@ -25,7 +25,7 @@ public class FriendsItemAdapter extends RecyclerView.Adapter<FriendsItemAdapter.
     }
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
-        public TextView plansDone;
+
         public TextView challengesWon;
         public TextView username;
         public TextView xp;
@@ -54,7 +54,7 @@ public class FriendsItemAdapter extends RecyclerView.Adapter<FriendsItemAdapter.
         }
     }
 
-    public FriendsItemAdapter(ArrayList<FriendListUserItem> exampleList) {
+    public FriendsItemAdapter(ArrayList<UserListingItem> exampleList) {
         mExampleList = exampleList;
     }
 
@@ -67,10 +67,7 @@ public class FriendsItemAdapter extends RecyclerView.Adapter<FriendsItemAdapter.
 
     @Override
     public void onBindViewHolder(ExampleViewHolder holder, int position) {
-        FriendListUserItem currentItem = mExampleList.get(position);
-
-
-        holder.plansDone.setText("" + currentItem.getPlansDone());
+        UserListingItem currentItem = mExampleList.get(position);
         holder.challengesWon.setText("" +currentItem.getChallengesWon());
         holder.username.setText(currentItem.getUsername());
         holder.xp.setText("" +currentItem.getXp());

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class GlobalRankingAdapter extends RecyclerView.Adapter<GlobalRankingAdapter.ExampleViewHolder> {
-    private ArrayList<RankingUserItem> mUsers;
+    private ArrayList<UserListingItem> mUsers;
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
 
@@ -31,7 +31,7 @@ public class GlobalRankingAdapter extends RecyclerView.Adapter<GlobalRankingAdap
         }
 
     }
-    public GlobalRankingAdapter(ArrayList<RankingUserItem> users){
+    public GlobalRankingAdapter(ArrayList<UserListingItem> users){
         mUsers = users;
     }
 
@@ -45,7 +45,7 @@ public class GlobalRankingAdapter extends RecyclerView.Adapter<GlobalRankingAdap
 
     @Override
     public void onBindViewHolder(GlobalRankingAdapter.ExampleViewHolder holder, int position) {
-        RankingUserItem currentItem = mUsers.get(position);
+        UserListingItem currentItem = mUsers.get(position);
 
         holder.challengesWon.setText("" +currentItem.getChallengesWon());
         holder.username.setText(currentItem.getUsername());

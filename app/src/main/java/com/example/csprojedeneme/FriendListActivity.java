@@ -14,7 +14,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import java.util.ArrayList;
 
 public class FriendListActivity extends AppCompatActivity {
-    private ArrayList<FriendListUserItem> mExampleList;
+    private ArrayList<UserListingItem> mExampleList;
 
     private RecyclerView mRecyclerView;
     private FriendsItemAdapter mAdapter;
@@ -62,13 +62,14 @@ public class FriendListActivity extends AppCompatActivity {
         }
 
 
+
     }
     public void addDocumentIdToList(String id){
         MainActivity.usersRef.document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 User user = documentSnapshot.toObject(User.class);
-                mExampleList.add(new FriendListUserItem(user.getPlansDone(), user.getChallengesWon(),
+                mExampleList.add(new UserListingItem(user.getChallengesWon(),
                         user.getUsername(), user.getXp()));
                 count++;
                 if(count == friendsId.size()){

@@ -23,7 +23,7 @@ public class GlobalRankingActivity extends AppCompatActivity {
     private GlobalRankingAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<User > usersGet;
-    private ArrayList<RankingUserItem> mListToAdd;
+    private ArrayList<UserListingItem> mListToAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class GlobalRankingActivity extends AppCompatActivity {
     public void createList(){
         for(int i = 0; i < usersGet.size(); i++){
             User user = usersGet.get(i);
-            mListToAdd.add(new RankingUserItem(user.getPlansDone(), user.getChallengesWon(),
+            mListToAdd.add(new UserListingItem(user.getChallengesWon(),
                     user.getUsername(), user.getXp()));
         }
         buildRecyclerView();

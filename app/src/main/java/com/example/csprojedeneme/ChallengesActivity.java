@@ -106,8 +106,7 @@ public class ChallengesActivity extends AppCompatActivity {
                 ch1 = ch.getChallengeName();
                 resoure1 = ch.getmImageResource();
                 prevText1.setText(ch1);
-                setImages();
-            }
+                setImages();}
         });
     }
     public void updateVariables2(String chId){
