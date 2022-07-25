@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "507673607163",
+    "firebase_url": "https://cs-proje-deneme-default-rtdb.firebaseio.com",
     "project_id": "cs-proje-deneme",
     "storage_bucket": "cs-proje-deneme.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:507673607163:android:a198f7d1ee5f492e41295e",
+        "mobilesdk_app_id": "1:507673607163:android:5a8d4e8594b07d0241295e",
         "android_client_info": {
           "package_name": "com.example.csprojedeneme"
         }
