@@ -73,22 +73,22 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
                 User user = documentSnapshot.toObject(User.class);
                 switch (view.getId()){
                     case R.id.marketItem1:
-                        buy(user, list[1]);
+                        buy(user, list[0]);
                         break;
                     case R.id.marketItem2:
-                        buy(user, list[2]);
+                        buy(user, list[1]);
                         break;
                     case R.id.marketItem3:
-                        buy(user, list[3]);
+                        buy(user, list[2]);
                         break;
                     case R.id.marketItem4:
-                        buy(user, list[4]);
+                        buy(user, list[3]);
                         break;
                     case R.id.marketItem5:
-                        buy(user, list[5]);
+                        buy(user, list[4]);
                         break;
                     case R.id.marketItem6:
-                        buy(user, list[6]);
+                        buy(user, list[5]);
                         break;
                 }
             }
@@ -115,7 +115,7 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
                         break;
                     }
                     Item item = documentSnapshot.toObject(Item.class);
-                    list[count] = new Item(item.getId(), item.getCost());
+                    list[count] = new Item(item.getId(), item.getCost(), item.getCategory());
                     randomItems.add(item);
                     drawItem(randomItems.get(count).getId(), imageViews.get(count));
                     count++;
@@ -126,13 +126,9 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
             }
         });
 
-        /*String[] linkList = {"https://firebasestorage.googleapis.com/v0/b/cs-proje-deneme.appspot.com/o/itemsImage%2FBas%CC%A7l%C4%B1ks%C4%B1z13_20220722122432.PNG?alt=media&token=58ea95dc-dc6b-4c44-8ca9-fb5971cb50c5",
-        "https://firebasestorage.googleapis.com/v0/b/cs-proje-deneme.appspot.com/o/itemsImage%2FBas%CC%A7l%C4%B1ks%C4%B1z13_20220722122520.PNG?alt=media&token=d6017f1a-34f3-4c29-8114-4477b3fb96c9",
-        "https://firebasestorage.googleapis.com/v0/b/cs-proje-deneme.appspot.com/o/itemsImage%2FBas%CC%A7l%C4%B1ks%C4%B1z13_20220722122528.PNG?alt=media&token=2b8b80ca-f84e-441c-b21b-8c81d2318562",
-                "https://firebasestorage.googleapis.com/v0/b/cs-proje-deneme.appspot.com/o/itemsImage%2FBas%CC%A7l%C4%B1ks%C4%B1z13_20220722124749.PNG?alt=media&token=b7b8df7c-9d67-4a3e-a975-5bfba25a353c"
-        };
-        for (String str : linkList) {
-            omermethod(str, 300);
+        /*String[] linkList = {"https://firebasestorage.googleapis.com/v0/b/cs-proje-deneme.appspot.com/o/itemsImage%2Fyellow%20shirt.png?alt=media&token=4d571083-a394-4ae5-bef0-bd3c020d7723"};
+        for (int i = 0; i < 2; i++) {
+            omermethod(linkList[0], 200, "Dress");
         }*/
 
 
@@ -173,6 +169,13 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
                             Toast.LENGTH_SHORT).show();
                 }
             });
+            MainActivity.itemRef.update("category", item.getCategory()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Toast.makeText(StoreActivity.this,"purchased",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
         }
         else{
             Toast.makeText(StoreActivity.this, "not enough gold", Toast.LENGTH_SHORT).show();
@@ -191,8 +194,8 @@ public class StoreActivity extends AppCompatActivity implements View.OnClickList
         itemList.add("https://tr.depositphotos.com/vector-images/imagenes-en-png.html");
         return  itemList;
     }
-    public void omermethod(String id, int cost){
-        Item item = new Item(id, cost);
+    public void omermethod(String id, int cost, String category){
+        Item item = new Item(id, cost, category);
         MainActivity.itemsRef.add(item).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {

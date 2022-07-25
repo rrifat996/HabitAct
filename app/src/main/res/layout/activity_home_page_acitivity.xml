@@ -123,6 +123,46 @@
         android:layout_marginBottom="24dp"
         app:srcCompat="@drawable/fox_avatar" />
 
+    <ImageView
+        android:id="@+id/topItem"
+        android:layout_width="140dp"
+        android:layout_height="118dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="596dp" />
+
+    <ImageView
+        android:id="@+id/botItem"
+        android:layout_width="244dp"
+        android:layout_height="301dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp" />
+
+
+    <ImageView
+        android:id="@+id/dressItem"
+        android:layout_width="244dp"
+        android:layout_height="301dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp" />
+
+    <ImageView
+        android:id="@+id/hatItem"
+        android:layout_width="244dp"
+        android:layout_height="301dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp" />
+
+    <ImageView
+        android:id="@+id/shoesItem"
+        android:layout_width="244dp"
+        android:layout_height="301dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/settingsButton"
         android:layout_width="90dp"
@@ -131,5 +171,7 @@
         android:layout_marginTop="650dp"
         android:background="@drawable/settings"
         android:onClick="settingsMenu" />
+
+
 
 </RelativeLayout>

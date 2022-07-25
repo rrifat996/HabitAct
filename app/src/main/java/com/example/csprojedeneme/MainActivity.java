@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     public static CollectionReference itemsRef = db.collection("items");
     public static CollectionReference usersRef = db.collection("users");
     public static DocumentReference userRef;
+    public static DocumentReference itemRef;
+
 
     private boolean userFound = false;
 
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         if(SaveSharedPreference.getUserId(MainActivity.this).length() != 0)
         {
             userRef = usersRef.document(SaveSharedPreference.getUserId(MainActivity.this));
+            itemRef = itemsRef.document(SaveSharedPreference.getUserId(MainActivity.this));
             Intent intent = new Intent(this, HomePageActivity.class);
             startActivity(intent);
         }

@@ -8,16 +8,22 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
+
+import java.util.ArrayList;
 
 public class HomePageActivity extends AppCompatActivity {
 
     private Button storeButton,weeklyPlanButton,challengesButton,statisticsButton,settingsButton;
     private TextView welcomeText;
+    private ArrayList<Item> itemArrayList = new ArrayList<>();
+    private ImageView topItem, botItem, dressItem, hatItem, shoesItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +34,12 @@ public class HomePageActivity extends AppCompatActivity {
         challengesButton = (Button)findViewById(R.id.challengesButton);
         statisticsButton = (Button)findViewById(R.id.statisticsButton);
         settingsButton = (Button)findViewById(R.id.settingsButton);
+        topItem = (ImageView)findViewById(R.id.topItem);
+        botItem = (ImageView)findViewById(R.id.botItem);
+        dressItem = (ImageView)findViewById(R.id.dressItem);
+        hatItem = (ImageView)findViewById(R.id.hatItem);
+        shoesItem = (ImageView)findViewById(R.id.shoesItem);
+
 
         if(Event.trigger == 0){
             MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -40,6 +52,49 @@ public class HomePageActivity extends AppCompatActivity {
             });
             Event.trigger++;
         }
+        wearItems();
+
+    }
+
+    public void wearItems(){
+        MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                itemArrayList = documentSnapshot.toObject(User.class).getItems();
+                for (Item item : itemArrayList) {
+                    int count = 0;
+                    System.out.println(item.getCategory());
+                    /*Glide.with(getBaseContext())
+                            .load(item.getId())
+                            .into(topItem);*/
+                    if (item.getCategory().equalsIgnoreCase("Top")){
+                        Glide.with(getBaseContext())
+                                .load(item.getId())
+                                .into(topItem);
+                    }
+                    else if (item.getCategory().equalsIgnoreCase("Bottom")){
+                        Glide.with(getBaseContext())
+                                .load(item.getId())
+                                .into(botItem);
+                    }
+                    else if (item.getCategory().equalsIgnoreCase("Dress")){
+                        Glide.with(getBaseContext())
+                                .load(item.getId())
+                                .into(dressItem);
+                    }
+                    else if (item.getCategory().equalsIgnoreCase("Hat")){
+                        Glide.with(getBaseContext())
+                                .load(item.getId())
+                                .into(hatItem);
+                    }
+                    else if (item.getCategory().equalsIgnoreCase("Shoes")){
+                        Glide.with(getBaseContext())
+                                .load(item.getId())
+                                .into(shoesItem);
+                    }
+                }
+            }
+        });
 
     }
     public void storeMenu(View v){
@@ -66,4 +121,5 @@ public class HomePageActivity extends AppCompatActivity {
     public void onBackPressed() {
         this.finishAffinity();
     }
+
 }

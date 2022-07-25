@@ -1,5 +1,7 @@
 package com.example.csprojedeneme;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+
 import java.util.ArrayList;
 
 public class User {
@@ -125,5 +127,10 @@ public class User {
     }
     public void addCollection(Item item){
         this.getItems().add(item);
+        MainActivity.userRef.update("items", this.getItems()).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+            }
+        });
     }
 }
