@@ -60,4 +60,7 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
+    public void onBackPressed() {
+        this.finishAffinity();
+    }
 }
