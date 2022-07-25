@@ -72,23 +72,25 @@ public class CreateChallenge extends AppCompatActivity {
                 Toast.makeText(CreateChallenge.this,"got name",
                         Toast.LENGTH_SHORT).show();
                 userName = documentSnapshot.toObject(User.class).getRealName();
+
+                challenge.setCreatorName(userName);
+                challenge.setmImageResource(imageResource);
+                MainActivity.challengesRef.add(challenge).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {  // maybe get id later (meet)
+                        Toast.makeText(CreateChallenge.this,"document added database",
+                                Toast.LENGTH_SHORT).show();
+                        docId = documentReference.getId();
+                        docRef = documentReference;
+                        setId();
+                        setCreator();
+                    }
+                });
+                getBack();
                 //            welcomeText.setText("Welcome, " + documentSnapshot.toObject(User.class).getRealName());
             }
         });
-        challenge.setCreatorName(userName);
-        challenge.setmImageResource(imageResource);
-        MainActivity.challengesRef.add(challenge).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {  // maybe get id later (meet)
-                Toast.makeText(CreateChallenge.this,"document added database",
-                        Toast.LENGTH_SHORT).show();
-                docId = documentReference.getId();
-                docRef = documentReference;
-                setId();
-                setCreator();
-            }
-        });
-        getBack();
+
     }
     public void setId(){
         docRef.update("id", docId);

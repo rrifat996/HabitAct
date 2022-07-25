@@ -95,16 +95,12 @@ public class MeetChallenge extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 clickedIdx = position;
-                changeBackGround();
                 lastSelectedId = challenges.get(position).getId();
                 lastSelectedCreatorId = challenges.get(position).getCreatorId();
                 creatorRef = MainActivity.usersRef.document(lastSelectedCreatorId);
                 // addChallenge(challenges.get(position).getId());
             }
         });
-    }
-    public void changeBackGround(){
-
     }
     public void updateUser(String first, String second, String third){
         MainActivity.userRef.update("challange1", first).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -164,7 +160,7 @@ public class MeetChallenge extends AppCompatActivity {
                 if(!id.equals(user.getChallange1()) && !id.equals(user.getChallange2()) && !id.equals(user.getChallange3())){
                     String first = user.getChallange1();
                     String second = user.getChallange2();
-                    String third = user.getChallange3();
+                    String third;
 
                     third = second;
                     second = first;
