@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 
 public class CalendarMainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
-    private TextView monthYearText;
+    private TextView weekYearText;
     private RecyclerView calendarRecyclerView;
 
     @Override
@@ -30,37 +30,37 @@ public class CalendarMainActivity extends AppCompatActivity implements CalendarA
         setContentView(R.layout.activity_main_calendar);
         initWidgets();
         CalendarUtils.selectedDate = LocalDate.now();
-        setMonthView();
+        setWeekView();
     }
 
     private void initWidgets()
     {
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
-        monthYearText = findViewById(R.id.monthYearTV);
+        weekYearText = findViewById(R.id.monthYearTV);
     }
 
-    private void setMonthView()
+    private void setWeekView()
     {
-        monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
-        ArrayList<LocalDate> daysInMonth = daysInMonthArray(CalendarUtils.selectedDate);
+        weekYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
+        ArrayList<LocalDate> daysInWeek = daysInMonthArray(CalendarUtils.selectedDate);
 
-        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth,  this);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInWeek,  this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
     }
 
 
-    public void previousMonthAction(View view)
+    public void previousWeekAction(View view)
     {
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
-        setMonthView();
+        setWeekView();
     }
 
-    public void nextMonthAction(View view)
+    public void nextWeekAction(View view)
     {
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusMonths(1);
-        setMonthView();
+        setWeekView();
     }
 
 
@@ -68,7 +68,7 @@ public class CalendarMainActivity extends AppCompatActivity implements CalendarA
     {
         if(localDate!=null){
             CalendarUtils.selectedDate = localDate;
-            setMonthView();
+            setWeekView();
         }
     }
 
