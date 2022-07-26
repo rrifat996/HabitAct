@@ -4,6 +4,8 @@ CS 102 PROJECT
 
 ✨
 
+IMPORTANT. THIS APPLICATION LAYOUTS ARE DESIGNED FOR S6Edge samsung phone size. S6Edge AVD specific sizes are stored into a file device.xml which can be downloaded from applicatıon root folder. What need to do is to click on "add device definiton" from android studio and import given file and create S6Edge AVD. Otherwise layouts will not be seen as they need to be.
+
 Features
 
 A self imporvement personal habit traction application with customizable character
