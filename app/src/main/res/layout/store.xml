@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/general_background"
+    android:background="@drawable/deneme"
     tools:context=".StoreActivity">
+
 
 
     <ImageView
@@ -19,15 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="1040px"
-        android:layout_height="600px"
-        android:scaleType="centerInside"
-        android:src="@drawable/grid"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="470dp" />
 
     <TextView
         android:id="@+id/gold1"
