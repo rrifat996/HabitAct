@@ -74,10 +74,12 @@ public class SignUpActivity extends AppCompatActivity{
                                                 for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
                                                     User user = documentSnapshot.toObject(User.class);
                                                     String username = user.getUsername();
-                                                    if(user.getUsername().equals(typedUsername)){
-                                                        SaveSharedPreference.setUserId(SignUpActivity.this, documentSnapshot.getId());
-                                                        MainActivity.userRef = MainActivity.usersRef.document(SaveSharedPreference.getUserId(SignUpActivity.this));
-                                                        break;
+                                                    if(username!= null){
+                                                        if (user.getUsername().equals(typedUsername)) {
+                                                            SaveSharedPreference.setUserId(SignUpActivity.this, documentSnapshot.getId());
+                                                            MainActivity.userRef = MainActivity.usersRef.document(SaveSharedPreference.getUserId(SignUpActivity.this));
+                                                            break;
+                                                        }
                                                     }
                                                 }
                                             }

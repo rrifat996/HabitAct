@@ -19,6 +19,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:layout_width="1040px"
+        android:layout_height="600px"
+        android:scaleType="centerInside"
+        android:src="@drawable/grid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="470dp" />
+
     <TextView
         android:id="@+id/gold1"
         android:layout_width="wrap_content"
