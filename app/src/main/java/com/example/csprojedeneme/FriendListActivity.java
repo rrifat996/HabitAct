@@ -86,7 +86,7 @@ public class FriendListActivity extends AppCompatActivity {
         MainActivity.userRef.update("friendList", newFriendsList).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(FriendListActivity.this,"friend removed",
+                Toast.makeText(FriendListActivity.this,"Friend removed",
                         Toast.LENGTH_SHORT).show();
                 removeFromOther(lastRemovedId);
 
@@ -110,8 +110,6 @@ public class FriendListActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(FriendListActivity.this,"friend removed 2 successful",
-                                Toast.LENGTH_SHORT).show();
                     }
                 });
 

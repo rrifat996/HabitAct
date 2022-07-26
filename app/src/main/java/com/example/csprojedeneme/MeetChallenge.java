@@ -106,22 +106,17 @@ public class MeetChallenge extends AppCompatActivity {
         MainActivity.userRef.update("challange1", first).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(MeetChallenge.this,"challenges1 updated",
-                        Toast.LENGTH_SHORT).show();
             }
         });
         MainActivity.userRef.update("challange2", second).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(MeetChallenge.this,"challenges2 updated",
-                        Toast.LENGTH_SHORT).show();
             }
         });
         MainActivity.userRef.update("challange3", third).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(MeetChallenge.this,"challenges3 updated",
-                        Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -130,22 +125,18 @@ public class MeetChallenge extends AppCompatActivity {
         creatorRef.update("challange1", first).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(MeetChallenge.this,"challenges1 updated",
+                Toast.makeText(MeetChallenge.this,"Challenges updated",
                         Toast.LENGTH_SHORT).show();
             }
         });
         MainActivity.userRef.update("challange2", second).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(MeetChallenge.this,"challenges2 updated",
-                        Toast.LENGTH_SHORT).show();
             }
         });
         MainActivity.userRef.update("challange3", third).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(MeetChallenge.this,"challenges3 updated",
-                        Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -169,7 +160,7 @@ public class MeetChallenge extends AppCompatActivity {
                     updateUser(first, second, third);
                 }
                 else{
-                    Toast.makeText(MeetChallenge.this,"You already met with this challenge",
+                    Toast.makeText(MeetChallenge.this,"You already met with this challenge!",
                             Toast.LENGTH_SHORT).show();
                 }
 
@@ -187,7 +178,7 @@ public class MeetChallenge extends AppCompatActivity {
                 if(!id.equals(user.getChallange1()) && !id.equals(user.getChallange2()) && !id.equals(user.getChallange3())){
                     String first = user.getChallange1();
                     String second = user.getChallange2();
-                    String third;https://github.cohttps://github.com/rrifat996/cs102projem/rrifat996/cs102proje
+                    String third;
 
                     third = second;
                     second = first;

@@ -1,6 +1,5 @@
 package com.example.csprojedeneme;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,7 +95,6 @@ public class ChallengeAdapter extends RecyclerView.Adapter {
         holder1.mDescription.setText(currentChallenge.getDescription());
         holder1.mTitle.setText(currentChallenge.getChallengeName());
         holder1.mIcon.setImageResource(currentChallenge.getmImageResource());
-        //holder1.changeColor.setBackgroundResource(R.drawable.image_view_border);
 
     }
 

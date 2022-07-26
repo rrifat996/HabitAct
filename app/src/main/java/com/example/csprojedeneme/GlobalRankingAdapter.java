@@ -47,9 +47,11 @@ public class GlobalRankingAdapter extends RecyclerView.Adapter<GlobalRankingAdap
     public void onBindViewHolder(GlobalRankingAdapter.ExampleViewHolder holder, int position) {
         UserListingItem currentItem = mUsers.get(position);
 
-        holder.challengesWon.setText("" +currentItem.getChallengesWon());
-        holder.username.setText(currentItem.getUsername());
         holder.xp.setText("" +currentItem.getXp());
+        holder.username.setText(currentItem.getUsername());
+        holder.challengesWon.setText("" +currentItem.getChallengesWon());
+
+
 
     }
 

@@ -6,12 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.example.csprojedeneme.GlobalRankingActivity">
 
+    <ImageView
+        android:layout_width="550dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="-50dp"
+        android:src="@drawable/rankings"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="100dp"
-        android:background="@android:color/darker_gray"
+        android:layout_marginTop="98dp"
+        android:background="@color/general_background"
         android:padding="4dp"
         android:scrollbars="vertical" />
 

@@ -69,8 +69,6 @@ public class CreateChallenge extends AppCompatActivity {
         MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Toast.makeText(CreateChallenge.this,"got name",
-                        Toast.LENGTH_SHORT).show();
                 userName = documentSnapshot.toObject(User.class).getRealName();
 
                 challenge.setCreatorName(userName);
@@ -78,7 +76,7 @@ public class CreateChallenge extends AppCompatActivity {
                 MainActivity.challengesRef.add(challenge).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {  // maybe get id later (meet)
-                        Toast.makeText(CreateChallenge.this,"document added database",
+                        Toast.makeText(CreateChallenge.this,"Challenge created.",
                                 Toast.LENGTH_SHORT).show();
                         docId = documentReference.getId();
                         docRef = documentReference;

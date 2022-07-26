@@ -28,7 +28,7 @@ public class CreatingCharacterActivity extends AppCompatActivity {
         MainActivity.userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Toast.makeText(CreatingCharacterActivity.this,"continued",
+                Toast.makeText(CreatingCharacterActivity.this,"Welcome to HabitAct",
                         Toast.LENGTH_SHORT).show();
                 MainActivity.userRef.update("realName", enterName.getText().toString());
             }

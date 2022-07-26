@@ -1,6 +1,5 @@
 package com.example.csprojedeneme;
 
-import static com.example.csprojedeneme.CalendarUtils.daysInMonthArray;
 import static com.example.csprojedeneme.CalendarUtils.daysInWeekArray;
 import static com.example.csprojedeneme.CalendarUtils.monthYearFromDate;
 
@@ -9,20 +8,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;

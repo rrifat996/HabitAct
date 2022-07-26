@@ -64,9 +64,7 @@ public class HomePageActivity extends AppCompatActivity {
                 for (Item item : itemArrayList) {
                     int count = 0;
                     System.out.println(item.getCategory());
-                    /*Glide.with(getBaseContext())
-                            .load(item.getId())
-                            .into(topItem);*/
+
                     if (item.getCategory().equalsIgnoreCase("Top")){
                         Glide.with(getBaseContext())
                                 .load(item.getId())
